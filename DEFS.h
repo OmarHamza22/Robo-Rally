@@ -20,6 +20,9 @@ enum ActionType // The actions supported (add more as needed)
 	SET_WORKSHOP, //set workshop
 	SET_ROTATING_GEAR_CLOCK, // set rotating gear clock
 	SET_ROTATING_GEAR_ANTI_CLOCK,
+	ADD_BELT,
+	ADD_ROTATINGGEAR,
+	ADD_FLAG,
 	COPY_GAME_OBJECT,
 	CUT_GAME_OBJECT,
 	PASTE_GAME_OBJECT,
