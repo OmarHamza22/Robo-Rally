@@ -25,9 +25,24 @@ enum DESIGN_MODE_ITEMS // The items of the Design Mode (you should add more item
 
 	ITM_SET_FLAG_CELL,
 	ITM_EXIT,
-	ITM_SWITCH_TO_PLAY_MODE,
+	ITM_SWITCH_TO_PLAY_MODE, 
+	ITM_ADD_ANTENNA, 
+	ITM_ADD_BELT,
+	ITM_ADD_WATER_PIT,
+	ITM_ADD_DANGER_ZONE,
+	ITM_ADD_WORKSHOP,
+	ITM_ADD_ROTATING_GEAR_CLOCKWISE,
+	ITM_ADD_ROTATING_GEAR_COUNTER_CLOCKWISE,
+	ITM_COPY_GAME_OBJECT,
+	ITM_CUT_GAME_OBJRCT,
+	ITM_PASTE_GAME_OBJECT,
+	ITM_DELETE_GAME_OBJECT,
+	ITM_SAVE_GRID,
+	ITM_LOAD_and_OPEN_GRID,
 
-	///TODO: Add more items names here
+
+	
+	///TODO: Add more items names here #######DONE
 
 	DESIGN_ITM_COUNT	// no. of items ==> This should be the last line in this enum
 };
@@ -36,12 +51,17 @@ enum PLAY_MODE_ITEMS // The items of the Play Mode (you should add more items)
 {
 	// Note: Items are ordered here as they appear in menu
 	// If you want to change the menu items order, change the order here
+		///TODO: Add more items names here
 
 	ITM_EXECUTE_COMMANDS,
 	ITM_SELECT_COMMAND,
+	ITM_REBOOT_AND_REPAIR,
 	ITM_SWITCH_TO_DESIGN_MODE,
+	ITM_USE_CONSUMABLE,
+	ITM_NEW_GAME,
+	ITM_EXIT_1,
+	ITM_EXIT_2,
 
-	///TODO: Add more items names here
 
 	PLAY_ITM_COUNT		// no. of items ==> This should be the last line in this enum
 };
@@ -54,17 +74,17 @@ struct UI_Info	// User Interface Info.
 	GUI_MODE InterfaceMode;
 
 	int	width, height,			// Window width and height
-		wx, wy,				// Window starting coordinates
+		wx , wy,				// Window starting coordinates
 		ToolBarHeight,			// Tool Bar Height (distance from top of window to bottom line of toolbar)
 		CommandsBarHeight,		// Commands Bar Height (distance from bottom of window to bottom line of commands bar)
 		StatusBarHeight,		// Status Bar Height
 		MenuItemWidth,			// Width of each item in toolbar menu
 		CommandItemWidth;		// Width of the saved commands in the commands bar (not the available commands)
 
-
+	
 	int CellHeight;				// Height of 1 CELL
 	int CellWidth;				// Width of 1 CELL
-
+	
 	color MsgColor;				// Messages color (usually used in statusbar)
 	color PlayerInfoColor;		// Players' Info color (used in the toolbar - right-indented)
 	color CommandBarTextColor;	// Commands Bar text color
@@ -100,13 +120,14 @@ struct UI_Info	// User Interface Info.
 	int FlagPoleWidth;			// Width of the flag pole
 	int FlagPoleHeight;			// Height of the flag pole
 
-	color PlayerColors[MaxPlayerCount];		// Color of each player
+	color PlayerColors[MaxPlayerCount]; 	// Color of each player
+	
 
 	int CommandItemsCount;		// Number of commands the player can use
 	int AvailableCommandsCount;	// Number of available commands the player can select from
 
-								///TODO: Add more members if needed
+	///TODO: Add more members if needed
 
-} UI;	// create a global object UI
+} UI ;	// create a global object UI
 
 #endif

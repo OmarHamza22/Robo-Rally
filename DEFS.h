@@ -11,10 +11,23 @@ enum ActionType // The actions supported (add more as needed)
 	SET_FLAG_CELL,	// Set Flag on a Cell
 	EXIT,			// Exit Application
 	TO_PLAY_MODE,	// Go to Play Mode
-	ADD_BELT,
-	ADD_ROTATINGGEAR,
-	ADD_FLAG,
+
 	///TODO: Add more action types of Design Mode
+	SET_ANTENNA, // set antenna 
+	SET_BELT, // set belt
+	SET_WATER_PIT, //set water bit
+	SET_DANGER_ZONE, // set danger zone
+	SET_WORKSHOP, //set workshop
+	SET_ROTATING_GEAR_CLOCK, // set rotating gear clock
+	SET_ROTATING_GEAR_ANTI_CLOCK,
+	COPY_GAME_OBJECT,
+	CUT_GAME_OBJECT,
+	PASTE_GAME_OBJECT,
+	DELETE_GAME_OBJECT,
+	SAVE_GRID,
+	OPEN_GRID, // LOAD OR OPEN
+
+
 
 	//  [2] Actions of Play Mode
 
@@ -24,6 +37,10 @@ enum ActionType // The actions supported (add more as needed)
 	TO_DESIGN_MODE,	// Go to Design Mode
 
 	///TODO: Add more action types of Play Mode
+	REPOOT_AND_REPAIR,
+	USE_CONSUMABLE,
+	NEW_GAME,
+	// EXIT, IS DEFINIED ABOVE NO NEED FOR DEFINE AGAING
 
 	//  [3] Others
 
