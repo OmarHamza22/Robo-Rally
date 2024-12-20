@@ -40,7 +40,7 @@ public:
 	                                                     // only if the Cell does NOT already contain an object, 
 	                                                     // otherwise return false and don't add
 
-	void RemoveObjectFromCell(const CellPosition & pos); // Removes the GameObject of the Cell of the passed "position"
+	bool RemoveObjectFromCell(const CellPosition & pos); // Removes the GameObject of the Cell of the passed "position"
 	                                                     // Note: You may need to change the return type of this function (Think)
 
 	void UpdatePlayerCell(Player * player, const CellPosition & newPosition); // Update the player's pCell with the CellList's Cell pointer of the "newPosition",
@@ -61,6 +61,8 @@ public:
 	void AdvanceCurrentPlayer();     // Increments the currPlayerNum and if reaches MaxPlayerCount reset to 0 (using %)
 
 	///TODO: add any needed setter/getter "EXCEPT" ANY setters or getters of "CellList" or "PlayerList" (Forbidden for class Responsibilities)
+
+	GameObject* getGameobject(const CellPosition &cell) const;
 
 	// ========= Other Getters =========
 	

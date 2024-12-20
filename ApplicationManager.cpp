@@ -1,5 +1,8 @@
 #include "ApplicationManager.h"
-
+#include "Copy.h"
+#include "Cut.h"
+#include "Paste.h"
+#include"Delete.h"
 #include "Grid.h"
 #include "AddBeltAction.h"
 #include "AddRotatingGearAction.h"
@@ -68,7 +71,18 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		// create an object of AddFlagAction here
 		pAct = new AddFlagAction(this);
 		break;
-
+	case COPY_GAME_OBJECT:
+		pAct = new Copy(this);
+		break;
+	case CUT_GAME_OBJECT:
+		pAct = new Cut(this);
+		break;
+	case PASTE_GAME_OBJECT:
+		pAct = new Paste(this);
+		break;
+	case DELETE_GAME_OBJECT:
+		pAct = new Delete(this);
+		break;
 	case EXIT:
 		break;
 

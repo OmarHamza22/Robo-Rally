@@ -1,7 +1,10 @@
 #include "Input.h"
 
 #include "Output.h"
+#include<iostream>
 using namespace std;
+
+
 //======================================================================================//
 //								General Functions									    //
 //======================================================================================//
@@ -87,7 +90,7 @@ GetUserAction() const
 				// Add cases for the other items of Design Mode
 				///TODO: Add cases for the other items of Design Mode
 			case ITM_ADD_ANTENNA: return SET_ANTENNA;
-			case ITM_ADD_BELT: return SET_BELT;
+			case ITM_ADD_BELT: return ADD_BELT;
 			case ITM_ADD_WATER_PIT: return SET_WATER_PIT;
 			case ITM_ADD_DANGER_ZONE: return SET_DANGER_ZONE;
 			case ITM_ADD_WORKSHOP: return SET_WORKSHOP;
