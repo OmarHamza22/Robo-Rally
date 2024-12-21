@@ -11,8 +11,6 @@
 #include "switchtodesignmode.h"
 #include "newgame.h"
 #include "repotandrepair.h"
-#include "playmode.h"
-#include "excute.h"
 ///TODO: Add #include for all action types
 
 ApplicationManager::ApplicationManager()
@@ -92,12 +90,10 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		break;
 
 	case TO_PLAY_MODE:					//TODO:
-		pAct = new playmode(this ,pOut);
-	// temporary till you made its action class (CHANGE THIS LATTER)
+		pAct = new switchtoplaymode(this ,pOut); // temporary till you made its action class (CHANGE THIS LATTER)
 		break;
-	case EXECUTE_COMMANDS:
-		pAct = new excute(this, pOut);
-		break;
+
+	
 
 	case TO_DESIGN_MODE:				//TODO:
 		pAct = new switchtodesignmode(this, pOut); // temporary till you made its action class (CHANGE THIS LATTER)

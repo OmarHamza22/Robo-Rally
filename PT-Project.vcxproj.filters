@@ -210,12 +210,6 @@
     <ClCompile Include="newgame.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
-    <ClCompile Include="playmode.cpp">
-      <Filter>Actions</Filter>
-    </ClCompile>
-    <ClCompile Include="excute.cpp">
-      <Filter>Actions</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMUgraphicsLib\auxil.h">
@@ -354,12 +348,6 @@
       <Filter>Actions</Filter>
     </ClInclude>
     <ClInclude Include="newgame.h">
-      <Filter>Actions</Filter>
-    </ClInclude>
-    <ClInclude Include="excute.h">
-      <Filter>Actions</Filter>
-    </ClInclude>
-    <ClInclude Include="playmode.h">
       <Filter>Actions</Filter>
     </ClInclude>
   </ItemGroup>

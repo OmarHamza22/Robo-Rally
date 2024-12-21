@@ -22,7 +22,7 @@ int main()
 		AppManager.UpdateInterface();
 
 	} while(ActType != EXIT);
-	
+
 
 	return 0;
 }
