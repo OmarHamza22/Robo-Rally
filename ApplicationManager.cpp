@@ -12,11 +12,9 @@
 #include "switchtodesignmode.h"
 #include "newgame.h"
 #include "repotandrepair.h"
-<<<<<<< HEAD
-=======
+
 #include <iostream>
 ///TODO: Add #include for all action types
->>>>>>> c3ec93ed6942d1452b23d85304ef63b2080700e2
 
 ///TODO: Add #include for all action types
 #include"AddWorkshopAction.h"
