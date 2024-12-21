@@ -1,4 +1,5 @@
 #include "ApplicationManager.h"
+#include"Save.h"
 #include "Copy.h"
 #include "Cut.h"
 #include "Paste.h"
@@ -11,6 +12,7 @@
 #include "switchtodesignmode.h"
 #include "newgame.h"
 #include "repotandrepair.h"
+#include <iostream>
 ///TODO: Add #include for all action types
 
 ApplicationManager::ApplicationManager()
@@ -86,6 +88,10 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 	case DELETE_GAME_OBJECT:
 		pAct = new Delete(this);
 		break;
+	case SAVE_GRID:
+		pAct = new Save(this);
+		break;
+
 	case EXIT:
 		break;
 
