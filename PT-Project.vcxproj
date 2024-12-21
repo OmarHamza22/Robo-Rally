@@ -191,7 +191,6 @@
     <ClCompile Include="repotandrepair.cpp" />
     <ClCompile Include="RotatingGear.cpp" />
     <ClCompile Include="Save.cpp" />
-    <ClCompile Include="AddWorkshopAction.cpp" />
     <ClCompile Include="switchtodesignmode.cpp" />
     <ClCompile Include="Switchtoplay.cpp" />
     <ClCompile Include="WaterPit.cpp" />
@@ -202,7 +201,6 @@
     <ClInclude Include="AddBeltAction.h" />
     <ClInclude Include="AddFlagAction.h" />
     <ClInclude Include="AddRotatingGearAction.h" />
-    <ClInclude Include="AddWorkshopAction.h" />
     <ClInclude Include="Antenna.h" />
     <ClInclude Include="ApplicationManager.h" />
     <ClInclude Include="Belt.h" />

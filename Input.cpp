@@ -81,6 +81,7 @@ GetUserAction() const
 
 			// Divide x coord of the point clicked by the menu item width (integer division)
 			// If division result is 0 ==> first item is clicked, if 1 ==> 2nd item and so on
+
 			switch (clickedItemOrder)
 			{
 			case ITM_SET_FLAG_CELL: return SET_FLAG_CELL;
