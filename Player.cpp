@@ -57,8 +57,24 @@ void Player::ClearDrawing(Output* pOut) const
 
 // ====== Game Functions ======
 
-void Player::Move(Grid * pGrid, Command moveCommands[])
+//void Player::Move(Grid * pGrid, Command moveCommands[])
+//{
+//
+//	///TODO: Implement this function using the guidelines mentioned below
+//
+//	// - If a player has 5 (could have less) saved moveCommands, the robot will execute the first saved command,
+//	//		then wait for a mouse click (display a message "Click anywhere to execute the next command").
+//	//		After executing all the 5 saved commands, the game object effect at the final destination cell will
+//	//		be applied.
+//	// 
+//	// - Use the CellPosition class to help you calculate the destination cell using the current cell
+//	// - Use the Grid class to update pCell
+//	// - Don't forget to apply game objects at the final destination cell and check for game ending
+//
+//}
+void Player::Move(Grid* pGrid, Command moveCommands[])
 {
+<<<<<<< HEAD
 	int x = 0; 
 	int y = 0;
 	Output* pOut;
@@ -117,13 +133,60 @@ void Player::Move(Grid * pGrid, Command moveCommands[])
 	// - Use the CellPosition class to help you calculate the destination cell using the current cell
 	// - Use the Grid class to update pCell
 	// - Don't forget to apply game objects at the final destination cell and check for game ending
+=======
+    CellPosition currentPosition = pCell->GetCellPosition();
+
+    for (int i = 0; i < 5; ++i) // Assume 5 commands
+    {
+        if (moveCommands[i] == NO_COMMAND) break;
+
+        CellPosition newPosition = currentPosition;
+        switch (moveCommands[i]) {
+        case MOVE_FORWARD_ONE_STEP:
+            newPosition.AddCellNum(1, currDirection);
+            break;
+        case MOVE_BACKWARD_ONE_STEP:
+            newPosition.AddCellNum(-1, currDirection);
+            break;
+        case ROTATE_CLOCKWISE:
+            currDirection = (Direction)((currDirection + 1) % 4);
+            break;
+        case ROTATE_COUNTERCLOCKWISE:
+            currDirection = (Direction)((currDirection + 3) % 4);
+            break;
+        default:
+            break;
+        }
+
+        if (newPosition.IsValidCell()) {
+            pGrid->UpdatePlayerCell(this, newPosition);
+            currentPosition = newPosition;
+        }
+
+        pGrid->PrintErrorMessage("Click anywhere to execute the next command.");
+        int x, y;
+        pGrid->GetInput()->GetPointClicked(x, y);
+    }
+
+    // Apply game object effect
+    GameObject* pGameObject = pGrid->getGameobject(currentPosition);
+    if (pGameObject) {
+        pGameObject->Apply(pGrid, this);
+    }
+
+    // Check for game ending conditions
+    if (health <= 0 || pGrid->GetEndGame()) {
+        pGrid->SetEndGame(true);
+    }
+>>>>>>> 4ed12e755e8f26a270b1876f2400f343b1a44c3e
 }
+
+
 
 void Player::AppendPlayerInfo(string & playersInfo) const
 {
 	// TODO: Modify the Info as needed
 	playersInfo += "P" + to_string(playerNum) + "(" ;
 	playersInfo += to_string(currDirection) + ", ";
-	playersInfo += to_string(health) + ")";
-
+    playersInfo += "HP: " + to_string(health) + ")";
 }

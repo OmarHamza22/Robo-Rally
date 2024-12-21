@@ -14,7 +14,6 @@ enum ActionType // The actions supported (add more as needed)
 
 	///TODO: Add more action types of Design Mode
 	SET_ANTENNA, // set antenna 
-	SET_BELT, // set belt
 	SET_WATER_PIT, //set water bit
 	SET_DANGER_ZONE, // set danger zone
 	SET_WORKSHOP, //set workshop

@@ -210,10 +210,14 @@
     <ClCompile Include="newgame.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="playmode.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
     <ClCompile Include="excute.cpp">
+=======
+    <ClCompile Include="AddWorkshopAction.cpp">
+>>>>>>> 4ed12e755e8f26a270b1876f2400f343b1a44c3e
       <Filter>Actions</Filter>
     </ClCompile>
   </ItemGroup>
@@ -356,10 +360,14 @@
     <ClInclude Include="newgame.h">
       <Filter>Actions</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="excute.h">
       <Filter>Actions</Filter>
     </ClInclude>
     <ClInclude Include="playmode.h">
+=======
+    <ClInclude Include="AddWorkshopAction.h">
+>>>>>>> 4ed12e755e8f26a270b1876f2400f343b1a44c3e
       <Filter>Actions</Filter>
     </ClInclude>
   </ItemGroup>

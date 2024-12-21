@@ -1,4 +1,5 @@
 #include "ApplicationManager.h"
+#include"Save.h"
 #include "Copy.h"
 #include "Cut.h"
 #include "Paste.h"
@@ -11,10 +12,17 @@
 #include "switchtodesignmode.h"
 #include "newgame.h"
 #include "repotandrepair.h"
+<<<<<<< HEAD
 #include "playmode.h"
 #include "excute.h"
+=======
+
+#include <iostream>
+>>>>>>> 4ed12e755e8f26a270b1876f2400f343b1a44c3e
 ///TODO: Add #include for all action types
 
+///TODO: Add #include for all action types
+#include"AddWorkshopAction.h"
 ApplicationManager::ApplicationManager()
 {
 	// Create Input, output and Grid
@@ -85,9 +93,16 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 	case PASTE_GAME_OBJECT:
 		pAct = new Paste(this);
 		break;
+	case SET_WORKSHOP:
+		pAct = new AddWorkshopAction(this);
+		break;
 	case DELETE_GAME_OBJECT:
 		pAct = new Delete(this);
 		break;
+	case SAVE_GRID:
+		pAct = new Save(this);
+		break;
+
 	case EXIT:
 		break;
 
