@@ -5,14 +5,18 @@
 #include "Output.h"
 #include "ApplicationManager.h"
 #include "Cell.h"
-class switchtodesignmode :public Action {
-
+using namespace std;
+class switchtoplaymode : public Action {
 public:
-    switchtodesignmode(ApplicationManager* pApp, Output* x);
-
+    switchtoplaymode(ApplicationManager* pApp, Output* x);
     Input* pIn;
     Output* pOut;
 
     void ReadActionParameters();
+
     void Execute();
+
+
+
+
 };

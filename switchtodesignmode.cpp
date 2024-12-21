@@ -1,18 +1,16 @@
 #include "switchtodesignmode.h"
 
-switchtodesignmode::switchtodesignmode(ApplicationManager* pApp,Output* x):Action(pApp),pOut(x){};
+switchtodesignmode::switchtodesignmode(ApplicationManager* pApp, Output* x) :Action(pApp), pOut(x) {};
 
 
 
-    void switchtodesignmode::Execute() {
+void switchtodesignmode::Execute() {
 	pOut->CreateDesignModeToolBar();
 
 }
 
-	void switchtodesignmode::ReadActionParameters() {
-	
-	}
-
+void switchtodesignmode::ReadActionParameters() {
+}
 
 
 

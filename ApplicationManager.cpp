@@ -7,7 +7,10 @@
 #include "AddBeltAction.h"
 #include "AddRotatingGearAction.h"
 #include "AddFlagAction.h"
-
+#include "Switchtoplay.h"
+#include "switchtodesignmode.h"
+#include "newgame.h"
+#include "repotandrepair.h"
 ///TODO: Add #include for all action types
 
 ApplicationManager::ApplicationManager()
@@ -87,17 +90,21 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		break;
 
 	case TO_PLAY_MODE:					//TODO:
-		pOut->CreatePlayModeToolBar(); // temporary till you made its action class (CHANGE THIS LATTER)
+		pAct = new switchtoplaymode(this ,pOut); // temporary till you made its action class (CHANGE THIS LATTER)
 		break;
 
 	
 
 	case TO_DESIGN_MODE:				//TODO:
-		pOut->CreateDesignModeToolBar(); // temporary till you made its action class (CHANGE THIS LATTER)
+		pAct = new switchtodesignmode(this, pOut); // temporary till you made its action class (CHANGE THIS LATTER)
 		break;
 
-		
-
+	case NEW_GAME :
+		pAct = new newgame(this, pOut);
+		break;
+	case REPOOT_AND_REPAIR :
+		pAct = new repotandrepair(this, pOut);
+		break;
 		///TODO: Add a case for EACH Action type in the Design mode or Play mode
 
 

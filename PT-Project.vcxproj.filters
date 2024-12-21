@@ -198,6 +198,18 @@
     <ClCompile Include="Paste.cpp" />
     <ClCompile Include="Delete.cpp" />
     <ClCompile Include="Save.cpp" />
+    <ClCompile Include="Switchtoplay.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="repotandrepair.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="switchtodesignmode.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="newgame.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMUgraphicsLib\auxil.h">
@@ -326,5 +338,17 @@
     <ClInclude Include="Paste.h" />
     <ClInclude Include="Delete.h" />
     <ClInclude Include="Save.h" />
+    <ClInclude Include="Switchtoplay.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="repotandrepair.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="switchtodesignmode.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="newgame.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
