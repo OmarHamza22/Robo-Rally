@@ -156,10 +156,12 @@ void CellPosition::AddCellNum(int addedNum, Direction direction)
 		}
 		else
 		{
+			
 			cellnum += (addedNum * 11);
 			if(vCell-addedNum >=0)
 			vCell -= addedNum;
 			else { vCell = -1; }
+			
 		}
 		
 		
