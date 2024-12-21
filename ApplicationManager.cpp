@@ -11,8 +11,9 @@
 #include "switchtodesignmode.h"
 #include "newgame.h"
 #include "repotandrepair.h"
-///TODO: Add #include for all action types
 
+///TODO: Add #include for all action types
+#include"AddWorkshopAction.h"
 ApplicationManager::ApplicationManager()
 {
 	// Create Input, output and Grid
@@ -82,6 +83,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		break;
 	case PASTE_GAME_OBJECT:
 		pAct = new Paste(this);
+		break;
+	case SET_WORKSHOP:
+		pAct = new AddWorkshopAction(this);
 		break;
 	case DELETE_GAME_OBJECT:
 		pAct = new Delete(this);
