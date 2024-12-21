@@ -197,6 +197,7 @@
     <ClCompile Include="Cut.cpp" />
     <ClCompile Include="Paste.cpp" />
     <ClCompile Include="Delete.cpp" />
+    <ClCompile Include="Save.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMUgraphicsLib\auxil.h">
@@ -324,5 +325,6 @@
     <ClInclude Include="Cut.h" />
     <ClInclude Include="Paste.h" />
     <ClInclude Include="Delete.h" />
+    <ClInclude Include="Save.h" />
   </ItemGroup>
 </Project>

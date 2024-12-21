@@ -157,18 +157,24 @@ void Paste::Execute()
 
 				CellPosition pasteEnd((pastecell.VCell() + (copiedEnd.VCell() - copiedStart.VCell())), (pastecell.HCell() + (copiedEnd.HCell() - copiedStart.HCell())));
 
-				
-				Belt* newBelt = new Belt(pasteStart, pasteEnd);
-				
-				bool added = pGride->AddObjectToCell(newBelt);
-				if (!added)
+				if (pasteEnd.IsValidCell() && pasteStart.IsValidCell())
 				{
-					delete newBelt;
-					pGride->PrintErrorMessage("Error:Cell already has an object!");
+					Belt* newBelt = new Belt(pasteStart, pasteEnd);
+
+					bool added = pGride->AddObjectToCell(newBelt);
+					if (!added)
+					{
+						delete newBelt;
+						pGride->PrintErrorMessage("Error:Cell already has an object!");
+					}
+					else
+					{
+						pGride->GetOutput()->PrintMessage("Belt pasted successfully!");
+					}
 				}
 				else
 				{
-					pGride->GetOutput()->PrintMessage("Belt pasted successfully!");
+					pGride->PrintErrorMessage("Error:Not Enough sapce for the belt!");
 				}
 			}
 			else

@@ -1,9 +1,17 @@
 #include "Grid.h"
-
+#include"CellPosition.h"
 #include "Cell.h"
 #include "GameObject.h"
 #include "Belt.h"
 #include "Player.h"
+#include "Flag.h"
+#include "Action.h"
+#include "WaterPit.h"
+#include "DangerZone.h"
+#include "RotatingGear.h"
+#include "Workshop.h"
+#include "Antenna.h"
+
 
 Grid::Grid(Input * pIn, Output * pOut) : pIn(pIn), pOut(pOut) // Initializing pIn, pOut
 {
@@ -135,6 +143,136 @@ GameObject* Grid::getGameobject(const CellPosition& CELL) const
 	}
 	return nullptr;
 }
+
+void Grid::SaveAll(ofstream& OutFile, string file, Type type)
+{
+	int Flags_num = 0, Antennas_num = 0, DangerZones_num = 0, RotatingGears_num = 0, WaterPits_num = 0, Workshops_num = 0, Belt_num = 0;
+
+	for (int i = NumVerticalCells - 1; i >= 0; i--)
+	{
+		for (int j = 0; j <= NumHorizontalCells - 1; j++)
+		{
+			if (dynamic_cast<Flag*>(CellList[i][j]->GetGameObject()))
+				Flags_num++;
+			if (dynamic_cast<Antenna*>(CellList[i][j]->GetGameObject()))
+				Antennas_num++;
+			if (dynamic_cast<DangerZone*>(CellList[i][j]->GetGameObject()))
+				DangerZones_num++;
+			if (dynamic_cast<RotatingGear*>(CellList[i][j]->GetGameObject()))
+				RotatingGears_num++;
+			if (dynamic_cast<WaterPit*>(CellList[i][j]->GetGameObject()))
+				WaterPits_num++;
+			if (dynamic_cast<Workshop*>(CellList[i][j]->GetGameObject()))
+				Workshops_num++;
+			if (dynamic_cast<Belt*>(CellList[i][j]->GetGameObject()))
+				Belt_num++;
+
+
+		}
+	}
+
+	switch (type)
+	{
+		case Flags:
+			OutFile << left << "Number Of Flags:  " << to_string(Flags_num) << endl;
+			for (int i = NumVerticalCells - 1; i >= 0; i--)
+			{
+				for (int j = 0; j <= NumHorizontalCells - 1; j++)
+				{
+					if (Flag* Object = dynamic_cast<Flag*>(CellList[i][j]->GetGameObject()))
+					{
+						Object->Save(OutFile, file);
+					}
+				}
+			}
+			break;
+
+		case WaterPits:
+			OutFile << left << "Number Of WaterPits:  " << to_string(WaterPits_num) << endl;
+			for (int i = NumVerticalCells - 1; i >= 0; i--)
+			{
+				for (int j = 0; j <= NumHorizontalCells - 1; j++)
+				{
+					if (WaterPit* Object = dynamic_cast<WaterPit*>(CellList[i][j]->GetGameObject()))
+					{
+						Object->Save(OutFile, file);
+					}
+				}
+			}
+			break;
+
+		case DangerZones:
+			OutFile << left << "Number Of DangerZones:  " << to_string(DangerZones_num) << endl;
+			for (int i = NumVerticalCells - 1; i >= 0; i--)
+			{
+				for (int j = 0; j <= NumHorizontalCells - 1; j++)
+				{
+					if (DangerZone* Object = dynamic_cast<DangerZone*>(CellList[i][j]->GetGameObject()))
+					{
+						Object->Save(OutFile, file);
+					}
+				}
+			}
+			break;
+
+		case Belts:
+			OutFile << left << "Number Of Belts:  " << to_string(Belt_num) << endl;
+			for (int i = NumVerticalCells - 1; i >= 0; i--)
+			{
+				for (int j = 0; j <= NumHorizontalCells - 1; j++)
+				{
+					if (Belt* Object = dynamic_cast<Belt*>(CellList[i][j]->GetGameObject()))
+					{
+						Object->Save(OutFile, file);
+					}
+				}
+			}
+			break;
+
+		case Workshops:
+			OutFile << left << "Number Of Workshops:  " << to_string(Workshops_num) << endl;
+			for (int i = NumVerticalCells - 1; i >= 0; i--)
+			{
+				for (int j = 0; j <= NumHorizontalCells - 1; j++)
+				{
+					if (Workshop* Object = dynamic_cast<Workshop*>(CellList[i][j]->GetGameObject()))
+					{
+						Object->Save(OutFile, file);
+					}
+				}
+			}
+			break;
+
+		case Antennas:
+			OutFile << left << "Number Of Antennas:  " << to_string(Antennas_num) << endl;
+			for (int i = NumVerticalCells - 1; i >= 0; i--)
+			{
+				for (int j = 0; j <= NumHorizontalCells - 1; j++)
+				{
+					if (Antenna* Object = dynamic_cast<Antenna*>(CellList[i][j]->GetGameObject()))
+					{
+						Object->Save(OutFile, file);
+					}
+				}
+			}
+			break;
+
+		case RotatingGears:
+			OutFile << left << "Number Of RotatingGears:  " << to_string(RotatingGears_num) << endl;
+			for (int i = NumVerticalCells - 1; i >= 0; i--)
+			{
+				for (int j = 0; j <= NumHorizontalCells - 1; j++)
+				{
+					if (RotatingGear* Object = dynamic_cast<RotatingGear*>(CellList[i][j]->GetGameObject()))
+					{
+						Object->Save(OutFile, file);
+					}
+				}
+			}
+			break;
+	}
+}
+
 
 
 // ========= Other Getters =========

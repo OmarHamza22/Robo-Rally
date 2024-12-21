@@ -1,5 +1,5 @@
 #pragma once
-
+#include < fstream >
 #include "UI_Info.h"
 #include "DEFS.h"
 
@@ -64,6 +64,7 @@ public:
 
 	GameObject* getGameobject(const CellPosition &cell) const;
 
+	void SaveAll(ofstream& OutFile, string file, Type type);
 	// ========= Other Getters =========
 	
 	Player * GetCurrentPlayer() const;	// Gets a Pointer to the Current Player	                                    

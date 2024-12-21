@@ -32,6 +32,15 @@ void Antenna::Apply(Grid * pGrid, Player * pPlayer)
 
 }
 
+void Antenna::Save(ofstream& OutFile, string file)
+{
+	if (!OutFile.is_open())
+		OutFile.open(file, ios::out);
+
+	OutFile << "Antenna" << " " << position.GetCellNum() << endl;
+
+}
+
 
 Antenna::~Antenna()
 {

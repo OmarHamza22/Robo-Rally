@@ -25,6 +25,15 @@ void WaterPit::Apply(Grid * pGrid, Player * pPlayer)
 	// 3- Update the players info which is displayed (check Grid class and decide which function to use)
 }
 
+void WaterPit::Save(ofstream& OutFile, string file)
+{
+	if (!OutFile.is_open())
+		OutFile.open(file, ios::out);
+
+	OutFile << "WaterPit" << " " << position.GetCellNum() << endl;
+
+}
+
 
 WaterPit::~WaterPit()
 {

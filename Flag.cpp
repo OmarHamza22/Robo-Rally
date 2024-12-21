@@ -21,6 +21,15 @@ void Flag::Apply(Grid* pGrid, Player* pPlayer)
 	//    Review the "pGrid" functions and decide which function can be used for that
 }
 
+void Flag::Save(ofstream& OutFile, string file)
+{
+	if (!OutFile.is_open())
+		OutFile.open(file, ios::out);
+
+	OutFile << "Falg" << " " << position.GetCellNum() << endl;
+
+}
+
 Flag::~Flag()
 {
 
