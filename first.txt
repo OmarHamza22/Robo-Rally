@@ -1,0 +1,12 @@
+Number Of Flags:  0
+Number Of WaterPits:  0
+Number Of DangerZones:  0
+Number Of Belts:  5
+Belt 25 28
+Belt 35 37
+Belt 45 12
+Belt 47 50
+Belt 51 7
+Number Of Workshops:  0
+Number Of Antennas:  0
+Number Of RotatingGears:  0
