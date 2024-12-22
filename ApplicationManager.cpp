@@ -15,6 +15,7 @@
 #include "playmode.h"
 ///TODO: Add #include for all action types
 #include"AddWorkshopAction.h"
+#include "AddWaterPit.h"
 ApplicationManager::ApplicationManager()
 {
 	// Create Input, output and Grid
@@ -114,7 +115,8 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 	case SET_WORKSHOP:
 		pAct = new AddWorkshopAction(this);
 		break;
-
+	case SET_WATER_PIT:
+		pAct = new AddWaterPit(this);
 
 	case STATUS:	// a click on the status bar ==> no action
 		return;

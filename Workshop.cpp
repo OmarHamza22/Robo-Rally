@@ -1,5 +1,4 @@
 #include "Workshop.h"
-#include < fstream >
 
 
 Workshop::Workshop(const CellPosition & workshopPosition):GameObject( workshopPosition)
@@ -15,6 +14,7 @@ void Workshop::Draw(Output * pOut) const
 
 void Workshop::Apply(Grid * pGrid, Player * pPlayer)
 {
+
 }
 
 void Workshop::Save(ofstream& OutFile, string file)
