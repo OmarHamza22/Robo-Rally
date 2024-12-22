@@ -186,6 +186,7 @@
     <ClCompile Include="Paste.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="playmode.cpp" />
     <ClCompile Include="repotandrepair.cpp" />
     <ClCompile Include="RotatingGear.cpp" />
     <ClCompile Include="Save.cpp" />
@@ -237,6 +238,7 @@
     <ClInclude Include="Output.h" />
     <ClInclude Include="Paste.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="playmode.h" />
     <ClInclude Include="repotandrepair.h" />
     <ClInclude Include="RotatingGear.h" />
     <ClInclude Include="Save.h" />
