@@ -4,6 +4,7 @@
 #include "Output.h"
 #include "Input.h"
 #include "Player.h"
+#include "excute.h"
 class playmode : public Action {
 private:
 

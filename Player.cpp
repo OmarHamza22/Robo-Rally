@@ -5,7 +5,7 @@
 Player::Player(Cell * pCell, int playerNum) : stepCount(0), health(10), playerNum(playerNum), currDirection(RIGHT)
 {
 	this->pCell = pCell;
-
+	
 	// Make all the needed initialization or validations
 }
 
@@ -33,13 +33,13 @@ int Player::GetHealth()
 }
 
 // ====== Drawing Functions ======
-static int playernum = 0;
+
 void Player::Draw(Output* pOut) const
 {
 
 	color playerColor = UI.PlayerColors[playerNum];
-	pOut->DrawPlayer(pCell->GetCellPosition(), playernum, playerColor, RIGHT);
-	playernum++;
+	pOut->DrawPlayer(pCell->GetCellPosition(), playerNum, playerColor, currDirection);
+	
  
 	///TODO: use the appropriate output function to draw the player with "playerColor"
 
@@ -49,7 +49,7 @@ void Player::ClearDrawing(Output* pOut) const
 {
 	///TODO: Modify the cellColor to draw the correct cellColor (hint: if cell contains non-default cellColor)
 	color cellColor = UI.CellColor;
-	
+	pOut->DrawPlayer(pCell->GetCellPosition(), playerNum, cellColor, currDirection);
 	
 	///TODO: use the appropriate output function to draw the player with "cellColor" (to clear it)
 
@@ -150,4 +150,7 @@ void Player::AppendPlayerInfo(string & playersInfo) const
 	playersInfo += to_string(currDirection) + ", ";
 	playersInfo += to_string(health) + ")";
 
+}
+int Player::getplayernum() {
+	return playerNum;
 }

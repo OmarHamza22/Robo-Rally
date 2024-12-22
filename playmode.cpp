@@ -8,10 +8,11 @@ playmode::playmode(ApplicationManager* pApp, Output* x) :Action(pApp), pOut(x) {
 void playmode::ReadActionParameters() {};
 void playmode::Execute() {
 	pOut->CreatePlayModeToolBar();
-    //pOut->DrawPlayer(pCell1->GetCellPosition(), 0, RED, RIGHT);
-	ptrp1->Draw(pOut);
-	ptrp2->Draw(pOut);
-	//pOut->DrawPlayer(pCell2->GetCellPosition(), 1, BLACK, RIGHT);
+  //  pOut->DrawPlayer(pCell1->GetCellPosition(), 0, RED, RIGHT);
+	//ptrp1->Draw(pOut);
+	//ptrp2->Draw(pOut);
+//	pOut->DrawPlayer(pCell2->GetCellPosition(), 1, BLACK, RIGHT); 
 	pOut->PrintMessage("You are now in play mode ");
+
 
 };

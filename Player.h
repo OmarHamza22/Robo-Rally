@@ -30,8 +30,12 @@ public:
 	Cell* GetCell() const;			// A getter for the pCell
 
 	void SetHealth(int h);			// A setter for the health points
-	int GetHealth();				// A getter for the health points
-
+	int GetHealth();
+	int getplayernum();
+	
+	
+	// A getter for the health points
+	
 
 	///TODO: You can add setters and getters for data members here (if needed)
 

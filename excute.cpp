@@ -5,6 +5,7 @@ excute::excute(ApplicationManager* pApp, Output* x) :Action(pApp), pOut(x) {
 
 };
 void excute::Execute() {
+	current->ClearDrawing(pOut);
 	current->Move(currentplayer, x);
 
 
