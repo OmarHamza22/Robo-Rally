@@ -1,4 +1,5 @@
 #include "ApplicationManager.h"
+#include "Save.h"
 #include "Copy.h"
 #include "Cut.h"
 #include "Paste.h"
@@ -85,6 +86,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		break;
 	case DELETE_GAME_OBJECT:
 		pAct = new Delete(this);
+		break;
+	case SAVE_GRID:
+		pAct = new Save(this);
 		break;
 	case EXIT:
 		break;

@@ -37,8 +37,7 @@ void Belt::Save(ofstream& OutFile, string file)
 	if (!OutFile.is_open())
 		OutFile.open(file, ios::out);
 
-	OutFile << "Belt" << " " << position.GetCellNum()<<" "<<endCellPos.GetCellNum()<< endl;
-
+	OutFile << "Belt" << " ,startcell: " << position.GetCellNum() << " ,endcell: " << endCellPos.GetCellNum() << endl;
 }
 
 
