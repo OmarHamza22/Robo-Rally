@@ -23,9 +23,13 @@ void AddBeltAction::ReadActionParameters()
 
 
 
-	///TODO: Make the needed validations on the read parameters
+	///TODO: Make the needed validations on the read parameters 
 
-
+	if (!startPos.IsValidCell()&& !endPos.IsValidCell() || startPos.GetCellNum() == 1)
+	{
+		pOut->PrintMessage("Invalid cell position! Operation cancelled.");
+		return;
+	}
 
 	// Clear messages
 	pOut->ClearStatusBar();
@@ -42,6 +46,19 @@ void AddBeltAction::Execute()
 
 	Grid * pGrid = pManager->GetGrid(); // We get a pointer to the Grid from the ApplicationManager
 
+	// Check for overlaps and conflicts
+
+	 if (pGrid->getGameobject(startPos) || pGrid->getGameobject(endPos)) {
+		pGrid->PrintErrorMessage("Error: Cells already has object! Operation cancelled.");
+		return;
+	}
+
+	if (pGrid->Beltsconflicts(startPos, endPos)) {
+
+		pGrid->PrintErrorMessage("Error: Belt will conflicts with existing belts! Operation cancelled.");
+		return;
+	}
+	
 										
 	bool added = pGrid->AddObjectToCell(pBelt);
 
@@ -53,6 +70,7 @@ void AddBeltAction::Execute()
 	}
 	// Here, the belt is created and added to the GameObject of its Cell, so we finished executing the AddBeltAction
 
+	pGrid->UpdateInterface();
 }
 
 AddBeltAction::~AddBeltAction()

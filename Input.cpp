@@ -84,7 +84,7 @@ GetUserAction() const
 
 			switch (clickedItemOrder)
 			{
-			case ITM_SET_FLAG_CELL: return SET_FLAG_CELL;
+			case ITM_SET_FLAG_CELL: return ADD_FLAG;
 			case ITM_EXIT: return EXIT;
 			case ITM_SWITCH_TO_PLAY_MODE: return TO_PLAY_MODE;		
 				// Add cases for the other items of Design Mode

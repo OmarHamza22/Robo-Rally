@@ -129,6 +129,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Action.cpp" />
+    <ClCompile Include="AddAntennaAction.cpp" />
     <ClCompile Include="AddBeltAction.cpp" />
     <ClCompile Include="AddFlagAction.cpp" />
     <ClCompile Include="AddRotatingGearAction.cpp" />
@@ -200,6 +201,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Action.h" />
+    <ClInclude Include="AddAntennaAction.h" />
     <ClInclude Include="AddBeltAction.h" />
     <ClInclude Include="AddFlagAction.h" />
     <ClInclude Include="AddRotatingGearAction.h" />

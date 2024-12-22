@@ -222,6 +222,9 @@
     <ClCompile Include="AddWaterPit.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
+    <ClCompile Include="AddAntennaAction.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMUgraphicsLib\auxil.h">
@@ -372,6 +375,9 @@
       <Filter>Actions</Filter>
     </ClInclude>
     <ClInclude Include="AddWaterPit.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="AddAntennaAction.h">
       <Filter>Actions</Filter>
     </ClInclude>
   </ItemGroup>

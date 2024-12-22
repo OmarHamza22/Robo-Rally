@@ -16,6 +16,7 @@
 ///TODO: Add #include for all action types
 #include"AddWorkshopAction.h"
 #include "AddWaterPit.h"
+#include "AddAntennaAction.h"
 ApplicationManager::ApplicationManager()
 {
 	// Create Input, output and Grid
@@ -76,6 +77,10 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 	case ADD_FLAG:
 		// create an object of AddFlagAction here
 		pAct = new AddFlagAction(this);
+		break;
+	case SET_ANTENNA:
+		// create an object of AddAntennaAction here
+		pAct = new AddAntennaAction(this);
 		break;
 	case COPY_GAME_OBJECT:
 		pAct = new Copy(this);
