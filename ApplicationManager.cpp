@@ -14,7 +14,7 @@
 #include "repotandrepair.h"
 #include "playmode.h"
 ///TODO: Add #include for all action types
-
+#include"AddWorkshopAction.h"
 ApplicationManager::ApplicationManager()
 {
 	// Create Input, output and Grid
@@ -111,7 +111,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		pAct = new repotandrepair(this, pOut);
 		break;
 		///TODO: Add a case for EACH Action type in the Design mode or Play mode
-
+	case SET_WORKSHOP:
+		pAct = new AddWorkshopAction(this);
+		break;
 
 
 	case STATUS:	// a click on the status bar ==> no action

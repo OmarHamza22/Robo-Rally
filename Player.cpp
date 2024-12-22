@@ -57,90 +57,64 @@ void Player::ClearDrawing(Output* pOut) const
 
 // ====== Game Functions ======
 
-void Player::Move(Grid * pGrid, Command moveCommands[])
+void Player::Move(Grid* pGrid, Command moveCommands[])
 {
-	int x = 0;
-	int y = 0;
-	Output* pOut;
-	Input* pIn;
-	Player* current = pGrid->GetCurrentPlayer();
-	Cell* known = current->GetCell();
-	CellPosition place = known->GetCellPosition();
-	for (int i = 0; i < sizeof(moveCommands) - 1;i++) {
-		switch (moveCommands[i]) {
-		case NO_COMMAND:
-			break;
-		case MOVE_FORWARD_ONE_STEP:
-			place.AddCellNum(1, current->currDirection);
-			break;
-		case MOVE_BACKWARD_ONE_STEP:
-			place.AddCellNum(-1, current->currDirection);
-			break;
-		case MOVE_FORWARD_TWO_STEPS:
-			place.AddCellNum(2, current->currDirection);
-			break;
-		case MOVE_BACKWARD_TWO_STEPS:
-			place.AddCellNum(-2, current->currDirection);
-			break;
-		case MOVE_FORWARD_THREE_STEPS:
-			place.AddCellNum(3, current->currDirection);
-			break;
-		case MOVE_BACKWARD_THREE_STEPS:
-			place.AddCellNum(-3, current->currDirection);
-			break;
-		case ROTATE_CLOCKWISE:
-			if (current->currDirection == 0) {
-				current->currDirection = DOWN;
-			}
-			else {
-				current->currDirection - 1;
+    CellPosition currentPosition = pCell->GetCellPosition();
 
-			}
-			break;
-		case ROTATE_COUNTERCLOCKWISE:
-			if (current->currDirection == 3) {
-				current->currDirection = RIGHT;
+    for (int i = 0; i < 5; ++i) // Assume 5 commands
+    {
+        if (moveCommands[i] == NO_COMMAND) break;
 
-			}
-			else {
-				current->currDirection + 1;
-			}
+        CellPosition newPosition = currentPosition;
+        switch (moveCommands[i]) {
+        case MOVE_FORWARD_ONE_STEP:
+            newPosition.AddCellNum(1, currDirection);
+            break;
+        case MOVE_BACKWARD_ONE_STEP:
+            newPosition.AddCellNum(-1, currDirection);
+            break;
+        case MOVE_FORWARD_TWO_STEPS:
+            newPosition.AddCellNum(2, currDirection);
+            break;
+        case MOVE_BACKWARD_TWO_STEPS:
+            newPosition.AddCellNum(-2, currDirection);
+            break;
+        case MOVE_FORWARD_THREE_STEPS:
+            newPosition.AddCellNum(3, currDirection);
+            break;
+        case MOVE_BACKWARD_THREE_STEPS:
+            newPosition.AddCellNum(-3, currDirection);
+            break;
+        case ROTATE_CLOCKWISE:
+            currDirection = (Direction)((currDirection + 1) % 4);
+            break;
+        case ROTATE_COUNTERCLOCKWISE:
+            currDirection = (Direction)((currDirection + 3) % 4);
+            break;
+        default:
+            break;
+        }
 
-		default:
-			break;
+        if (newPosition.IsValidCell()) {
+            pGrid->UpdatePlayerCell(this, newPosition);
+            currentPosition = newPosition;
+        }
 
-			//the rotating is still notdone 
-		}
+        pGrid->PrintErrorMessage("Click anywhere to execute the next command.");
+        int x, y;
+        pGrid->GetInput()->GetPointClicked(x, y);
+    }
 
-		pGrid->UpdatePlayerCell(current, place);
-		pOut->PrintMessage("click anywhere to excute next command");
-		pIn->GetPointClicked(x, y);
+    //// Apply game object effect
+    //GameObject* pGameObject = pGrid->getGameobject(currentPosition);
+    //if (pGameObject) {
+    //    pGameObject->Apply(pGrid, this);
+    //}
 
-
-
-	}
-	///TODO: Implement this function using the guidelines mentioned below
-	if (current->GetCell()->GetGameObject() != nullptr) {
-		current->GetCell()->GetGameObject()->Apply(pGrid, current);
-
-	}
-	if (pGrid->GetEndGame()) {
-		pOut->PrintMessage("Game finished ,click anywhere ");
-		pIn->GetPointClicked(x, y);
-		return;
-	}
-
-	///TODO: Implement this function using the guidelines mentioned below
-
-	// - If a player has 5 (could have less) saved moveCommands, the robot will execute the first saved command,
-	//		then wait for a mouse click (display a message "Click anywhere to execute the next command").
-	//		After executing all the 5 saved commands, the game object effect at the final destination cell will
-	//		be applied.
-	// 
-	// - Use the CellPosition class to help you calculate the destination cell using the current cell
-	// - Use the Grid class to update pCell
-	// - Don't forget to apply game objects at the final destination cell and check for game ending
-
+    //// Check for game ending conditions
+    //if (health <= 0 || pGrid->GetEndGame()) {
+    //    pGrid->SetEndGame(true);
+    //}
 }
 
 void Player::AppendPlayerInfo(string & playersInfo) const
@@ -148,7 +122,7 @@ void Player::AppendPlayerInfo(string & playersInfo) const
 	// TODO: Modify the Info as needed
 	playersInfo += "P" + to_string(playerNum) + "(" ;
 	playersInfo += to_string(currDirection) + ", ";
-	playersInfo += to_string(health) + ")";
+	playersInfo += "Player H"+ to_string(health) + ")";
 
 }
 int Player::getplayernum() {
