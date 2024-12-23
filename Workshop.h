@@ -1,6 +1,6 @@
 #pragma once
 #include "GameObject.h"
-#include < fstream >
+
 
 class Workshop :
 	public GameObject

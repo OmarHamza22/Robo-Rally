@@ -10,6 +10,8 @@
 //-------ADDED--------
 #include "Workshop.h"
 #include "RotatingGear.h"
+#include "flag.h"
+#include "Antenna.h"
 
 
 //-------______________------
@@ -59,7 +61,7 @@ Flag * Cell::HasFlag() const
 
 	///TODO: Implement the following function like HasBelt() function
 
-	return false; // THIS LINE SHOULD CHANGED WITH YOUR IMPLEMENTATION
+	return dynamic_cast<Flag*>(pGameObject);
 
 }
 WaterPit * Cell::HasWaterPit() const
@@ -87,6 +89,10 @@ RotatingGear* Cell::HasRotatingGear() const
 {
 	return dynamic_cast<RotatingGear*>(pGameObject);
 }
+Antenna* Cell::HasAntenna() const
+{
+	return dynamic_cast<Antenna*>(pGameObject);
+}
 
 
 // ======= Drawing Functions ======= 
@@ -106,7 +112,7 @@ void Cell::DrawCellOrWaterPitOrDangerZone(Output* pOut) const
 void Cell::DrawGameObject(Output* pOut) const
 {
 	//TODO: edit this incomplete implemntation to check for other game objects (excluding waterpits and dangerzones)
-	if (HasFlag()|| HasBelt()||HasRotatingGear()||HasWorkshop())
+	if (HasFlag()|| HasBelt()||HasRotatingGear()||HasWorkshop()||HasAntenna())
 		pGameObject->Draw(pOut); // draw game object
 
 }

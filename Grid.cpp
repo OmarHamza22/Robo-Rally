@@ -95,6 +95,52 @@ void Grid::UpdatePlayerCell(Player * player, const CellPosition & newPosition)
 	// Draw the player's triangle on the new cell position
 	player->Draw(pOut);
 }
+bool Grid::HasFlag() const {
+	for (int i = 0; i < NumVerticalCells; ++i) {
+		for (int j = 0; j < NumHorizontalCells; ++j) {
+			if (dynamic_cast<Flag*>(CellList[i][j]->GetGameObject())) {
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
+bool Grid::HasAntenna() const
+{
+	for (int i = 0; i < NumVerticalCells; ++i) {
+		for (int j = 0; j < NumHorizontalCells; ++j) {
+			if (dynamic_cast<Antenna*>(CellList[i][j]->GetGameObject())) {
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
+bool Grid::Beltsconflicts(CellPosition& startCell, CellPosition& endCell) const
+{
+	for (int i = 0; i < NumVerticalCells; i++) {
+		for (int j = 0; j < NumHorizontalCells; j++) {
+			GameObject* obj = CellList[i][j]->GetGameObject();
+			Belt* belt = dynamic_cast<Belt*>(obj);
+			if (belt) {
+				CellPosition beltStart = belt->GetPosition();
+				CellPosition beltEnd = belt->GetEndPosition();
+
+				// Check if one belt's end is another's start and belts overlabing
+
+				if ((startCell.GetCellNum() == beltEnd.GetCellNum() || endCell.GetCellNum() == beltStart.GetCellNum()) ||
+					(startCell.GetCellNum() == beltStart.GetCellNum() || endCell.GetCellNum() == beltEnd.GetCellNum())) {
+
+					return true;
+				}
+			}
+		}
+	}
+	return false;
+}
+
 
 
 // ========= Setters and Getters Functions =========

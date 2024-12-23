@@ -23,8 +23,18 @@ void Belt::Apply(Grid* pGrid, Player* pPlayer)
 
 	// 1- Print a message "You have reached a belt. Click to continue ..." and wait mouse click
 
+	Output* pOut = pGrid->GetOutput();
+	Input* pIn = pGrid->GetInput();
+
+	pOut->PrintMessage("You have reached a belt. Click to continue ...");
+	int x, y;
+	pIn->GetPointClicked(x, y);
+
 	// 2- Apply the belt's effect by moving the player to the endCellPos
 	//    Review the "pGrid" functions and decide which function can be used for that
+	pGrid->RemoveObjectFromCell(position);
+	pGrid->UpdatePlayerCell(pPlayer , endCellPos);
+	
 
 }
 CellPosition Belt::GetEndPosition() const

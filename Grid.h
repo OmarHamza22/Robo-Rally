@@ -46,6 +46,13 @@ public:
 	void UpdatePlayerCell(Player * player, const CellPosition & newPosition); // Update the player's pCell with the CellList's Cell pointer of the "newPosition",
 	                                                                          // Clears the player's circle from the previous cell
 	    																	  // and  Draws it in the new cell
+	bool HasFlag() const;  // Check if a flag already exists on the grid
+
+	bool HasAntenna() const;  // Check if a Antenna already exists on the grid     //  Added  //
+
+	bool Beltsconflicts(CellPosition& startCell, CellPosition& endCell) const;   //  Added  //
+	// Check if one belt's end is another's start and belts overlabing
+
 
 	// ========= Setters and Getters Functions =========
 

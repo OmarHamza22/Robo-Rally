@@ -16,6 +16,8 @@
 #include "playmode.h"
 ///TODO: Add #include for all action types
 #include"AddWorkshopAction.h"
+#include "AddWaterPit.h"
+#include "AddAntennaAction.h"
 ApplicationManager::ApplicationManager()
 {
 	// Create Input, output and Grid
@@ -77,6 +79,10 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		// create an object of AddFlagAction here
 		pAct = new AddFlagAction(this);
 		break;
+	case SET_ANTENNA:
+		// create an object of AddAntennaAction here
+		pAct = new AddAntennaAction(this);
+		break;
 	case COPY_GAME_OBJECT:
 		pAct = new Copy(this);
 		break;
@@ -118,7 +124,8 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 	case SET_WORKSHOP:
 		pAct = new AddWorkshopAction(this);
 		break;
-
+	case SET_WATER_PIT:
+		pAct = new AddWaterPit(this);
 
 	case STATUS:	// a click on the status bar ==> no action
 		return;
