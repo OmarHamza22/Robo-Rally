@@ -175,9 +175,6 @@
     <ClCompile Include="WaterPit.cpp">
       <Filter>GameObjects</Filter>
     </ClCompile>
-    <ClCompile Include="DangerZone.cpp">
-      <Filter>GameObjects</Filter>
-    </ClCompile>
     <ClCompile Include="Workshop.cpp">
       <Filter>GameObjects</Filter>
     </ClCompile>
@@ -227,6 +224,12 @@
     </ClCompile>
     <ClCompile Include="Load.cpp" />
     <ClCompile Include="shotingphase.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="DangerZone.cpp">
+      <Filter>GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="AddDangerzoneAction.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
   </ItemGroup>
@@ -334,9 +337,6 @@
     <ClInclude Include="WaterPit.h">
       <Filter>GameObjects</Filter>
     </ClInclude>
-    <ClInclude Include="DangerZone.h">
-      <Filter>GameObjects</Filter>
-    </ClInclude>
     <ClInclude Include="Workshop.h">
       <Filter>GameObjects</Filter>
     </ClInclude>
@@ -389,6 +389,12 @@
       <Filter>Actions</Filter>
     </ClInclude>
     <ClInclude Include="shotingphase.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="DangerZone.h">
+      <Filter>GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="AddDangerzoneAction.h">
       <Filter>Actions</Filter>
     </ClInclude>
   </ItemGroup>
