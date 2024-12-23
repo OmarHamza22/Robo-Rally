@@ -359,10 +359,13 @@ void Output::CreateCommandsBar(Command savedCommands[], int savedCommandsCount, 
 	CommandItemImages[MOVE_FORWARD_TWO_STEPS] = "images\\MoveForward_2S_Card.jpg";
 	CommandItemImages[MOVE_BACKWARD_TWO_STEPS] = "images\\MoveBackward_2S_Card.jpg";
 	CommandItemImages[MOVE_FORWARD_THREE_STEPS] = "images\\MoveForward_3S_Card.jpg";
+	CommandItemImages[MOVE_BACKWARD_THREE_STEPS] = "images\\MoveC_ClockwiseCard.jpg";
+
 	CommandItemImages[ROTATE_CLOCKWISE] = "images\\MoveClockwiseCard.jpg";
 	CommandItemImages[ROTATE_COUNTERCLOCKWISE] = "images\\MoveC_ClockwiseCard.jpg";
+	
 
-	DrawSavedCommands(savedCommands, savedCommandsCount, CommandItemImages);
+	//DrawSavedCommands(savedCommands, savedCommandsCount, CommandItemImages);
 	DrawAvailableCommands(availableCommands, availableCommandsCount, CommandItemImages);
     
 }
@@ -419,7 +422,7 @@ void Output::DrawAvailableCommands(Command availableCommands[], int availableCom
 
 		// Draw the command slot (assuming you have an image for the available commands)
 		if (availableCommands[i] != NO_COMMAND)
-			pWind->DrawImage(CommandItemImages[availableCommands[i]], x, y, availableCommandWidth, availableCommandHeight);
+		pWind->DrawImage(CommandItemImages[availableCommands[i]], x, y, availableCommandWidth, availableCommandHeight);
 		
 
 		// Draw the command number below the card

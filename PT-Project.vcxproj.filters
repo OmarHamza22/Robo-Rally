@@ -225,6 +225,10 @@
     <ClCompile Include="AddAntennaAction.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
+    <ClCompile Include="Load.cpp" />
+    <ClCompile Include="shotingphase.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMUgraphicsLib\auxil.h">
@@ -378,6 +382,13 @@
       <Filter>Actions</Filter>
     </ClInclude>
     <ClInclude Include="AddAntennaAction.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Load.h" />
+    <ClInclude Include="Selectcommand.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="shotingphase.h">
       <Filter>Actions</Filter>
     </ClInclude>
   </ItemGroup>

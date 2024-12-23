@@ -195,6 +195,7 @@
     <ClCompile Include="repotandrepair.cpp" />
     <ClCompile Include="RotatingGear.cpp" />
     <ClCompile Include="Save.cpp" />
+    <ClCompile Include="shotingphase.cpp" />
     <ClCompile Include="switchtodesignmode.cpp" />
     <ClCompile Include="Switchtoplay.cpp" />
     <ClCompile Include="WaterPit.cpp" />
@@ -252,6 +253,8 @@
     <ClInclude Include="repotandrepair.h" />
     <ClInclude Include="RotatingGear.h" />
     <ClInclude Include="Save.h" />
+    <ClInclude Include="Selectcommand.h" />
+    <ClInclude Include="shotingphase.h" />
     <ClInclude Include="switchtodesignmode.h" />
     <ClInclude Include="Switchtoplay.h" />
     <ClInclude Include="UI_Info.h" />
