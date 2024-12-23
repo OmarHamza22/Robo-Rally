@@ -18,8 +18,8 @@
 #include"AddWorkshopAction.h"
 #include "AddWaterPit.h"
 #include "AddAntennaAction.h"
-#include "AddDangerzoneAction.h"
-#include "AddRotatingGearAction.h"
+#include "excute.h"
+#include "Selectcommand.h"
 ApplicationManager::ApplicationManager()
 {
 	// Create Input, output and Grid
@@ -39,7 +39,7 @@ ApplicationManager::~ApplicationManager()
 //								Interface Management Functions						//
 //==================================================================================//
 
-Grid * ApplicationManager::GetGrid() const
+Grid* ApplicationManager::GetGrid() const
 {
 	return pGrid;
 }
@@ -62,7 +62,7 @@ ActionType ApplicationManager::GetUserAction() const
 ////////////////////////////////////////////////////////////////////////////////////
 
 // Creates an action and executes it
-void ApplicationManager::ExecuteAction(ActionType ActType) 
+void ApplicationManager::ExecuteAction(ActionType ActType)
 {
 	Action* pAct = NULL;
 
@@ -109,17 +109,20 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 	case TO_PLAY_MODE:					//TODO:
 		pAct = new playmode(this, pOut); // temporary till you made its action class (CHANGE THIS LATTER)
 		break;
-
-	
-
+	case EXECUTE_COMMANDS:
+		pAct = new excute(this, pOut);
+		break;
+	case SELECT_COMMAND:
+		pAct = new selectcommand(this, pOut);
+		break;
 	case TO_DESIGN_MODE:				//TODO:
 		pAct = new switchtodesignmode(this, pOut); // temporary till you made its action class (CHANGE THIS LATTER)
 		break;
 
-	case NEW_GAME :
+	case NEW_GAME:
 		pAct = new newgame(this, pOut);
 		break;
-	case REPOOT_AND_REPAIR :
+	case REPOOT_AND_REPAIR:
 		pAct = new repotandrepair(this, pOut);
 		break;
 		///TODO: Add a case for EACH Action type in the Design mode or Play mode
@@ -129,25 +132,13 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 	case SET_WATER_PIT:
 		pAct = new AddWaterPit(this);
 		break;
-	case SET_DANGER_ZONE:
-		pAct = new AddDangerzoneAction(this);
-		break;
-	case SET_ROTATING_GEAR_CLOCK:
-		pAct = new AddRotatingGearAction(this);
-		static_cast<AddRotatingGearAction*>(pAct)->SetClockwise(true);
-		break;
-	case SET_ROTATING_GEAR_ANTI_CLOCK:
-		pAct = new AddRotatingGearAction(this);
-		static_cast<AddRotatingGearAction*>(pAct)->SetClockwise(false);
-		break;
-
 	case STATUS:	// a click on the status bar ==> no action
 		return;
 
 	}
 
 	// Execute the created action
-	if(pAct != NULL)
+	if (pAct != NULL)
 	{
 		pAct->Execute(); // Execute
 		delete pAct;	 // Action is not needed any more after executing ==> delete it
