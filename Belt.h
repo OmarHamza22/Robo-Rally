@@ -1,5 +1,6 @@
 #pragma once
 #include < fstream >
+#include<iostream>
 #include"GameObject.h"
 class Belt: public GameObject
 {
@@ -15,6 +16,7 @@ public:
 	CellPosition GetEndPosition() const; // A getter for the endCellPos data member
 
 	virtual void Save(ofstream& OutFile, string file);
+	virtual void Load(ifstream& Infile, string file);
 
 	virtual ~Belt();
 };

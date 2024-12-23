@@ -37,7 +37,18 @@ void Belt::Save(ofstream& OutFile, string file)
 	if (!OutFile.is_open())
 		OutFile.open(file, ios::out);
 
-	OutFile << "Belt" << " ,startcell: " << position.GetCellNum() << " ,endcell: " << endCellPos.GetCellNum() << endl;
+	OutFile << position.GetCellNum() << " " << endCellPos.GetCellNum() << endl;
+}
+
+void Belt::Load(ifstream& Infile, string file)
+{
+	if (!Infile.is_open())
+		Infile.open(file, ios::in);
+
+	int EndcellNum,StartcellNum;
+	Infile >> StartcellNum>>EndcellNum;
+	position = CellPosition::GetCellPositionFromNum(StartcellNum);
+	endCellPos = CellPosition::GetCellPositionFromNum(EndcellNum);
 }
 
 

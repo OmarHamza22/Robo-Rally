@@ -1,0 +1,12 @@
+Number Of Flags: 0 
+Number Of WaterPits: 0 
+Number Of DangerZones: 0 
+Number Of Belts: 5 
+Belt ,startcell: 25 ,endcell: 14
+Belt ,startcell: 35 ,endcell: 46
+Belt ,startcell: 36 ,endcell: 39
+Belt ,startcell: 41 ,endcell: 44
+Belt ,startcell: 47 ,endcell: 50
+Number Of Workshops: 0 
+Number Of Antennas: 0 
+Number Of RotatingGears: 0 

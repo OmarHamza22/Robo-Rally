@@ -12,7 +12,7 @@ public:
 	virtual void Apply(Grid* pGrid, Player* pPlayer); // Applys the effect of the workshop
 
 	virtual void Save(ofstream& OutFile, string file);
-
+	virtual void Load(ifstream& Infile, string file);
 	~Workshop();
 };
 

@@ -30,8 +30,18 @@ void DangerZone::Save(ofstream& OutFile, string file)
 	if (!OutFile.is_open())
 		OutFile.open(file, ios::out);
 
-	OutFile << "DangerZone" << " " << position.GetCellNum() << endl;
+	OutFile << position.GetCellNum() << endl;
 
+}
+
+void DangerZone::Load(ifstream& Infile, string file)
+{
+	if (!Infile.is_open())
+		Infile.open(file, ios::in);
+
+	int cellNum;
+	Infile >> cellNum;
+	position = CellPosition::GetCellPositionFromNum(cellNum);
 }
 
 

@@ -1,4 +1,5 @@
 #include "ApplicationManager.h"
+#include"Load.h"
 #include "Save.h"
 #include "Copy.h"
 #include "Cut.h"
@@ -90,6 +91,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		break;
 	case SAVE_GRID:
 		pAct = new Save(this);
+		break;
+	case OPEN_GRID:
+		pAct = new Load(this);
 		break;
 	case EXIT:
 		break;

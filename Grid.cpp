@@ -1,4 +1,5 @@
 #include "Grid.h"
+#include <iomanip>
 #include"CellPosition.h"
 #include "Cell.h"
 #include "GameObject.h"
@@ -11,6 +12,8 @@
 #include "RotatingGear.h"
 #include "Workshop.h"
 #include "Antenna.h"
+#include "fstream"
+#include "iostream"
 
 
 Grid::Grid(Input * pIn, Output * pOut) : pIn(pIn), pOut(pOut) // Initializing pIn, pOut
@@ -174,7 +177,7 @@ void Grid::SaveAll(ofstream& OutFile, string file, Type type)
 	switch (type)
 	{
 		case Flags:
-			OutFile << left << "Number Of Flags:  " << to_string(Flags_num) << endl;
+			OutFile << left << "Number Of Flags: " << setw(2) << to_string(Flags_num) << endl;
 			for (int i = NumVerticalCells - 1; i >= 0; i--)
 			{
 				for (int j = 0; j <= NumHorizontalCells - 1; j++)
@@ -188,7 +191,7 @@ void Grid::SaveAll(ofstream& OutFile, string file, Type type)
 			break;
 
 		case WaterPits:
-			OutFile << left << "Number Of WaterPits:  " << to_string(WaterPits_num) << endl;
+			OutFile << left << "Number Of WaterPits: " << setw(2) << to_string(WaterPits_num) << endl;
 			for (int i = NumVerticalCells - 1; i >= 0; i--)
 			{
 				for (int j = 0; j <= NumHorizontalCells - 1; j++)
@@ -202,7 +205,7 @@ void Grid::SaveAll(ofstream& OutFile, string file, Type type)
 			break;
 
 		case DangerZones:
-			OutFile << left << "Number Of DangerZones:  " << to_string(DangerZones_num) << endl;
+			OutFile << left << "Number Of DangerZones: " << setw(2) << to_string(DangerZones_num) << endl;
 			for (int i = NumVerticalCells - 1; i >= 0; i--)
 			{
 				for (int j = 0; j <= NumHorizontalCells - 1; j++)
@@ -216,7 +219,7 @@ void Grid::SaveAll(ofstream& OutFile, string file, Type type)
 			break;
 
 		case Belts:
-			OutFile << left << "Number Of Belts:  " << to_string(Belt_num) << endl;
+			OutFile << left << "Number Of Belts: " << setw(2) << to_string(Belt_num) << endl;
 			for (int i = NumVerticalCells - 1; i >= 0; i--)
 			{
 				for (int j = 0; j <= NumHorizontalCells - 1; j++)
@@ -230,7 +233,7 @@ void Grid::SaveAll(ofstream& OutFile, string file, Type type)
 			break;
 
 		case Workshops:
-			OutFile << left << "Number Of Workshops:  " << to_string(Workshops_num) << endl;
+			OutFile << left << "Number Of Workshops: " << setw(2) << to_string(Workshops_num) << endl;
 			for (int i = NumVerticalCells - 1; i >= 0; i--)
 			{
 				for (int j = 0; j <= NumHorizontalCells - 1; j++)
@@ -244,7 +247,7 @@ void Grid::SaveAll(ofstream& OutFile, string file, Type type)
 			break;
 
 		case Antennas:
-			OutFile << left << "Number Of Antennas:  " << to_string(Antennas_num) << endl;
+			OutFile << left << "Number Of Antennas: " << setw(2) << to_string(Antennas_num) << endl;
 			for (int i = NumVerticalCells - 1; i >= 0; i--)
 			{
 				for (int j = 0; j <= NumHorizontalCells - 1; j++)
@@ -258,7 +261,7 @@ void Grid::SaveAll(ofstream& OutFile, string file, Type type)
 			break;
 
 		case RotatingGears:
-			OutFile << left << "Number Of RotatingGears:  " << to_string(RotatingGears_num) << endl;
+			OutFile << left << "Number Of RotatingGears: " << setw(2) << to_string(RotatingGears_num) << endl;
 			for (int i = NumVerticalCells - 1; i >= 0; i--)
 			{
 				for (int j = 0; j <= NumHorizontalCells - 1; j++)
@@ -270,6 +273,129 @@ void Grid::SaveAll(ofstream& OutFile, string file, Type type)
 				}
 			}
 			break;
+	}
+}
+
+void Grid::LoadAll(ifstream& Infile, string file, Type type)
+{
+	int objectCount;
+	string OBJtype;
+	getline(Infile, OBJtype);
+	objectCount = stoi(OBJtype.substr(OBJtype.find(":") + 1));
+	switch (type)
+	{
+
+	case Flags:
+	
+		for (int i = 0; i < objectCount; i++)
+		{
+			CellPosition pos;
+			Flag* newFlag = new Flag(pos); 
+			newFlag->Load(Infile, file);     
+			AddObjectToCell(newFlag);    
+		} 
+		if (objectCount != 0)
+		{
+			getline(Infile, OBJtype);
+		}
+
+		break;
+
+	case WaterPits:
+		
+		for (int i = 0; i < objectCount; i++)
+		{
+			CellPosition pos;
+
+			WaterPit* newWaterPit = new WaterPit(pos);  
+			newWaterPit->Load(Infile, file);   
+			AddObjectToCell(newWaterPit);   
+		}
+		if (objectCount != 0)
+		{
+			getline(Infile, OBJtype);
+		}
+		break;
+
+	case DangerZones:
+		
+		for (int i = 0; i < objectCount; i++)
+		{
+			CellPosition pos;
+
+			DangerZone* newDangerZone = new DangerZone(pos);  
+			newDangerZone->Load(Infile, file);    
+			AddObjectToCell(newDangerZone);    
+		}
+		if (objectCount != 0)
+		{
+			getline(Infile, OBJtype);
+		}
+		break;
+
+	case Belts:
+
+		for (int i = 0; i < objectCount; i++)
+		{
+			CellPosition spos,epos;
+			Belt* newBelt = new Belt(spos,epos);  
+			newBelt->Load(Infile, file);     
+			AddObjectToCell(newBelt);    
+		}
+		if (objectCount != 0)
+		{
+			getline(Infile, OBJtype);
+		}
+		break;
+
+	case Workshops:
+		
+		for (int i = 0; i < objectCount; i++)
+		{
+			CellPosition pos;
+
+			Workshop* newWorkshop = new Workshop(pos);  
+			newWorkshop->Load(Infile, file);     
+			AddObjectToCell(newWorkshop);    
+		}
+		if (objectCount != 0)
+		{
+			getline(Infile, OBJtype);
+		}
+		break;
+
+	case Antennas:
+
+		for (int i = 0; i < objectCount; i++)
+		{
+			CellPosition pos;
+
+			Antenna* newAntenna = new Antenna(pos);
+			newAntenna->Load(Infile, file);     
+			AddObjectToCell(newAntenna);   
+		}
+		if (objectCount != 0)
+		{
+			getline(Infile, OBJtype);
+		}
+		break;
+
+	case RotatingGears:
+		
+		for (int i = 0; i < objectCount; i++)
+		{
+			CellPosition pos;
+			int dierc = 0;
+			RotatingGear* newRotatingGear = new RotatingGear(pos,dierc);  
+			newRotatingGear->Load(Infile, file);  
+			AddObjectToCell(newRotatingGear);   
+		}
+		if (objectCount != 0)
+		{
+			getline(Infile, OBJtype);
+		}
+		break;
+
 	}
 }
 

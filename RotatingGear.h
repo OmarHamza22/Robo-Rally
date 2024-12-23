@@ -12,6 +12,7 @@ public:
 	bool GetisClockWise() const; // Getter for the direction
 
 	virtual void Save(ofstream& OutFile, string file);
+	virtual void Load(ifstream& Infile, string file);
 
 	virtual ~RotatingGear();
 };

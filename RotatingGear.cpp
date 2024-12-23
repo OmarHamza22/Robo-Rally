@@ -32,8 +32,19 @@ void RotatingGear::Save(ofstream& OutFile, string file)
 	if (!OutFile.is_open())
 		OutFile.open(file, ios::out);
 
-	OutFile << "RotatingGear" << " " << position.GetCellNum() << " " << isClockWise << endl;
+	OutFile << position.GetCellNum() << " " << isClockWise << endl;
 
+}
+
+void RotatingGear::Load(ifstream& Infile, string file)
+{
+	if (!Infile.is_open())
+		Infile.open(file, ios::in);
+
+	int cellNum, dierc;
+	Infile >> cellNum >> dierc;
+	position = CellPosition::GetCellPositionFromNum(cellNum);
+	isClockWise = dierc;
 }
 
 RotatingGear::~RotatingGear()

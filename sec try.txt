@@ -1,0 +1,13 @@
+Number Of Flags: 0 
+Number Of Flags: 0 
+Number Of Flags: 0 
+Number Of Flags: 6 
+Belt ,startcell: 19 ,endcell: 42
+Belt ,startcell: 24 ,endcell: 13
+Belt ,startcell: 26 ,endcell: 29
+Belt ,startcell: 35 ,endcell: 36
+Belt ,startcell: 47 ,endcell: 49
+Belt ,startcell: 51 ,endcell: 54
+Number Of Flags: 0 
+Number Of Flags: 0 
+Number Of Flags: 0 

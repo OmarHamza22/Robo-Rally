@@ -65,6 +65,8 @@ public:
 	GameObject* getGameobject(const CellPosition &cell) const;
 
 	void SaveAll(ofstream& OutFile, string file, Type type);
+	void LoadAll(ifstream& Infile, string file, Type type);
+
 	// ========= Other Getters =========
 	
 	Player * GetCurrentPlayer() const;	// Gets a Pointer to the Current Player	                                    
