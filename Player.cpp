@@ -5,6 +5,8 @@
 Player::Player(Cell * pCell, int playerNum) : stepCount(0), health(10), playerNum(playerNum), currDirection(RIGHT)
 {
 	this->pCell = pCell;
+    hasToolkit = false;
+    hasHackDevice = false;
 	
 	// Make all the needed initialization or validations
 }

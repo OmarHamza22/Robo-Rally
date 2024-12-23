@@ -12,8 +12,10 @@ class Player
 
 	int stepCount;		   // step count which is the same as his cellNum: from 1 to NumVerticalCells*NumHorizontalCells
 	Direction currDirection; // Current Direction of the player
-	int health;				// Player's current health points
-
+	int health;		
+	// Player's current health points
+	bool hasToolkit;
+	bool hasHackDevice;
 	// owned equipments
 	// carried consumables
 	// carried laser type (default, double laser)
@@ -56,6 +58,24 @@ public:
 	
 	void AppendPlayerInfo(string & playersInfo) const; // Appends player's info to the input string, 
 	                                                   // for example: P0(Direction, health)
+	// Setter for Toolkit
+	void Player::SetHasToolkit(bool hasToolkit) {
+		this->hasToolkit = hasToolkit;
+	}
+
+	// Getter for Toolkit
+	bool Player::HasToolkit() const {
+		return hasToolkit;
+	}
+	// Setter for Hack Device
+	void Player::SetHasHackDevice(bool hasHackDevice) {
+		this->hasHackDevice = hasHackDevice;
+	}
+
+	// Getter for Hack Device
+	bool Player::HasHackDevice() const {
+		return hasHackDevice;
+	}
 
 };
 
