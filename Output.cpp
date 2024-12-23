@@ -359,7 +359,7 @@ void Output::CreateCommandsBar(Command savedCommands[], int savedCommandsCount, 
 	CommandItemImages[MOVE_FORWARD_TWO_STEPS] = "images\\MoveForward_2S_Card.jpg";
 	CommandItemImages[MOVE_BACKWARD_TWO_STEPS] = "images\\MoveBackward_2S_Card.jpg";
 	CommandItemImages[MOVE_FORWARD_THREE_STEPS] = "images\\MoveForward_3S_Card.jpg";
-	CommandItemImages[MOVE_BACKWARD_THREE_STEPS] = "images\\MoveC_ClockwiseCard.jpg";
+	CommandItemImages[MOVE_BACKWARD_THREE_STEPS] = "images\\MoveBackward_3S_Card.jpg";
 
 	CommandItemImages[ROTATE_CLOCKWISE] = "images\\MoveClockwiseCard.jpg";
 	CommandItemImages[ROTATE_COUNTERCLOCKWISE] = "images\\MoveC_ClockwiseCard.jpg";
