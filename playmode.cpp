@@ -30,7 +30,7 @@ void playmode::Execute() {
 
 
 	randomcommandss();
-	pGrid->GetOutput()->DrawAvailableCommands(randomcommands, size, CommandItemImages);
+	pGrid->GetOutput()->CreateCommandsBar(x, 9, randomcommands, size);
 	
 
 

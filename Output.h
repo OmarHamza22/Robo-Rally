@@ -40,9 +40,9 @@ private:
 	// Draws the saved commands in the commands bar during the play mode
 	void DrawSavedCommands(Command savedCommands[], int savedCommandsCount, string CommandItemImages[]) const;
 	// Draws the available commands in the commands bar during the play mode
-	//void DrawAvailableCommands(Command availableCommands[], int availableCommandsCount, string CommandItemImages[]) const;
-public:
 	void DrawAvailableCommands(Command availableCommands[], int availableCommandsCount, string CommandItemImages[]) const;
+public:
+	//void DrawAvailableCommands(Command availableCommands[], int availableCommandsCount, string CommandItemImages[]) const;
 	Output();	// A Constructor for any needed initializations
 
 	window* CreateWind(int, int, int , int) const; // Creates the application window
