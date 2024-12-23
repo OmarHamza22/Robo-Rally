@@ -18,6 +18,8 @@
 #include"AddWorkshopAction.h"
 #include "AddWaterPit.h"
 #include "AddAntennaAction.h"
+#include "AddDangerzoneAction.h"
+#include "AddRotatingGearAction.h"
 ApplicationManager::ApplicationManager()
 {
 	// Create Input, output and Grid
@@ -126,9 +128,22 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		break;
 	case SET_WATER_PIT:
 		pAct = new AddWaterPit(this);
+		break;
+	case SET_DANGER_ZONE:
+		pAct = new AddDangerzoneAction(this);
+		break;
+	case SET_ROTATING_GEAR_CLOCK:
+		pAct = new AddRotatingGearAction(this);
+		static_cast<AddRotatingGearAction*>(pAct)->SetClockwise(true);
+		break;
+	case SET_ROTATING_GEAR_ANTI_CLOCK:
+		pAct = new AddRotatingGearAction(this);
+		static_cast<AddRotatingGearAction*>(pAct)->SetClockwise(false);
+		break;
 
 	case STATUS:	// a click on the status bar ==> no action
 		return;
+
 	}
 
 	// Execute the created action

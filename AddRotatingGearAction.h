@@ -9,6 +9,8 @@ class AddRotatingGearAction :public Action
 	bool clockwise; //bool value indicating if the gear will be in clockwise direction if true direction will be clockwise if false direction will be anticlockwise
 public:
 	AddRotatingGearAction(ApplicationManager *pApp);
+	void SetClockwise(bool isClockwise) { clockwise = isClockwise; }
+
 	virtual void ReadActionParameters(); // Reads action parameters 
 	virtual void Execute(); // Creates a new rotating gear Object 
 							// then Sets this rotating gear object to the GameObject Pointer of its Cell

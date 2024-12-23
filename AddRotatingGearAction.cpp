@@ -7,7 +7,20 @@ AddRotatingGearAction::AddRotatingGearAction(ApplicationManager * pApp):Action(p
 void AddRotatingGearAction::ReadActionParameters()
 {
 	///TODO: Implement this function as mentioned in the guideline steps (numbered below) below
+	Grid* pGrid = pManager->GetGrid();
+	Output* pOut = pGrid->GetOutput();
+	Input* pIn = pGrid->GetInput();
 
+	pOut->PrintMessage("Click on the cell to place the rotating gear...");
+	gearPos = pIn->GetCellClicked();
+
+	if (!gearPos.IsValidCell()) {
+		pOut->PrintMessage("Invalid cell! Click anywhere to continue.");
+		pIn->GetCellClicked();
+		return;
+	}
+
+	pOut->ClearStatusBar();
 
 	// == Here are some guideline steps (numbered below) to implement this function ==
 
@@ -23,16 +36,16 @@ void AddRotatingGearAction::ReadActionParameters()
 
 void AddRotatingGearAction::Execute()
 {
-	// The first line of any Action Execution is to read its parameter first 
-	// and hence initializes its data members
 	ReadActionParameters();
-	///TODO: Implement this function as mentioned in the guideline steps (numbered below) below
-	// == Here are some guideline steps (numbered below) to implement this function ==
 
-	// 1-Create a rotating gear object
-	// 2-get a pointer to the Grid from the ApplicationManager
-	// 3-Add the rotating object to the GameObject of its Cell:
-	// 4-Check if the rotating gear was added and print an errror message if flag couldn't be added
+	RotatingGear* pGear = new RotatingGear(gearPos, clockwise);
+	Grid* pGrid = pManager->GetGrid();
+	bool added = pGrid->AddObjectToCell(pGear);
+
+	if (!added) {
+		delete pGear;
+		pGrid->PrintErrorMessage("Error: Cell already has an object! Click to continue...");
+	}
 }
 
 AddRotatingGearAction::~AddRotatingGearAction()

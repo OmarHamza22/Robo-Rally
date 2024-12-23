@@ -1,5 +1,5 @@
 #include "WaterPit.h"
-
+#include"Player.h" 
 
 
 WaterPit::WaterPit(const CellPosition & waterPitPosition):GameObject(waterPitPosition)
@@ -19,10 +19,15 @@ void WaterPit::Apply(Grid * pGrid, Player * pPlayer)
 
 	// == Here are some guideline steps (numbered below) to implement this function ==
 
-	// 1- Print a message, make sure to edit this message according to which player wins "You drowned in a water pit. Player (0/1) wins !  Click to continue ..." and wait mouse click
+	// 1- Print a message informing the player about drowning
+	pGrid->GetOutput()->PrintMessage("You drowned in a water pit. Player loses All health points. Click to continue...");
+	pGrid->GetInput()->GetCellClicked(); // Wait for user acknowledgment
 
-	// 2- Apply the water pit's effect by setting the player's health which drowned to zero and ending the game
-	// 3- Update the players info which is displayed (check Grid class and decide which function to use)
+	// 2- Reduce the player's health by 10
+	pPlayer->SetHealth(pPlayer->GetHealth() - 10);
+
+	// 3- Update the interface to reflect changes
+	pGrid->UpdateInterface();
 }
 
 void WaterPit::Save(ofstream& OutFile, string file)

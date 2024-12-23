@@ -14,6 +14,7 @@ void Workshop::Draw(Output * pOut) const
 
 void Workshop::Apply(Grid * pGrid, Player * pPlayer)
 {
+	
 
 }
 

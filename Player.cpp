@@ -54,6 +54,14 @@ void Player::ClearDrawing(Output* pOut) const
 	///TODO: use the appropriate output function to draw the player with "cellColor" (to clear it)
 
 }
+Direction Player::GetCurrentDirection() {
+    return currDirection;
+}
+
+void Player::SetDirection(Direction direction)
+{
+	currDirection = direction;
+}
 
 // ====== Game Functions ======
 
