@@ -445,6 +445,18 @@ void Grid::LoadAll(ifstream& Infile, string file, Type type)
 	}
 }
 
+void Grid::removeGrid()
+{
+	for (int i = NumVerticalCells - 1; i >= 0; i--) 
+	{
+		for (int j = 0; j <= NumHorizontalCells - 1; j++)
+		{
+			CellPosition pos(i, j);
+			RemoveObjectFromCell(pos); // Remove object from the cell
+		}
+	}
+}
+
 
 
 // ========= Other Getters =========

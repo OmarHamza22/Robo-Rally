@@ -1,0 +1,14 @@
+Number Of Flags: 1 
+53
+Number Of WaterPits: 0 
+Number Of DangerZones: 0 
+Number Of Belts: 3 
+20 17
+23 45
+48 50
+Number Of Workshops: 2 
+15
+30
+Number Of Antennas: 1 
+36
+Number Of RotatingGears: 0 
