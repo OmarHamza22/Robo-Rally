@@ -5,19 +5,20 @@
 #include "Input.h"
 #include "Player.h"
 #include "Grid.h"
-class excute :public Action {
-	ApplicationManager* pManager;
-	Player* current;
-	Command* x;
-	Grid* currentplayer;
+#include "Selectcommand.h"
+
+class excute : public Action {
+    Player* current;
+    Command* x;
+    Grid* currentplayer;
+
+
 public:
-	excute(ApplicationManager* pApp, Output* x);
+    excute(ApplicationManager* pApp, Output* x);
 
-	Input* pIn;
-	Output* pOut;
+    Input* pIn;
+    Output* pOut;
 
-	void ReadActionParameters(Command moveCommands[]);
-	void Execute();
-	void ReadActionParameters();
-
+    void ReadActionParameters();
+    void Execute();
 };

@@ -232,6 +232,9 @@
     <ClCompile Include="AddDangerzoneAction.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
+    <ClCompile Include="select.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMUgraphicsLib\auxil.h">

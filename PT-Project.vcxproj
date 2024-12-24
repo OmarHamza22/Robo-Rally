@@ -196,6 +196,7 @@
     <ClCompile Include="repotandrepair.cpp" />
     <ClCompile Include="RotatingGear.cpp" />
     <ClCompile Include="Save.cpp" />
+    <ClCompile Include="select.cpp" />
     <ClCompile Include="shotingphase.cpp" />
     <ClCompile Include="switchtodesignmode.cpp" />
     <ClCompile Include="Switchtoplay.cpp" />
