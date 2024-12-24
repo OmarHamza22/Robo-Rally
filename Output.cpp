@@ -365,7 +365,7 @@ void Output::CreateCommandsBar(Command savedCommands[], int savedCommandsCount, 
 	CommandItemImages[ROTATE_COUNTERCLOCKWISE] = "images\\MoveC_ClockwiseCard.jpg";
 	
 
-	//DrawSavedCommands(savedCommands, savedCommandsCount, CommandItemImages);
+	DrawSavedCommands(savedCommands, savedCommandsCount, CommandItemImages);
 	DrawAvailableCommands(availableCommands, availableCommandsCount, CommandItemImages);
     
 }
