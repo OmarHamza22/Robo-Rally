@@ -20,12 +20,14 @@
 #include "AddAntennaAction.h"
 #include "AddDangerzoneAction.h"
 #include "AddRotatingGearAction.h"
+#include "shotingphase.h"
 ApplicationManager::ApplicationManager()
 {
 	// Create Input, output and Grid
 	pOut = new Output();
 	pIn = pOut->CreateInput();
 	pGrid = new Grid(pIn, pOut);
+	turn = 0;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////
@@ -109,18 +111,26 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 	case TO_PLAY_MODE:					//TODO:
 		pAct = new playmode(this, pOut); // temporary till you made its action class (CHANGE THIS LATTER)
 		break;
-
+	case EXECUTE_COMMANDS:
+		turn++;
+		pAct = new excute(this, pOut);
+		break;
 	
 
 	case TO_DESIGN_MODE:				//TODO:
 		pAct = new switchtodesignmode(this, pOut); // temporary till you made its action class (CHANGE THIS LATTER)
 		break;
 
-	case NEW_GAME :
+	case NEW_GAME:
+		turn = 0;
 		pAct = new newgame(this, pOut);
 		break;
-	case REPOOT_AND_REPAIR :
+	case REPOOT_AND_REPAIR:
+		turn++;
 		pAct = new repotandrepair(this, pOut);
+		break;
+	case SELECT_COMMAND:
+		pAct = new selectcommand(this, pOut);
 		break;
 		///TODO: Add a case for EACH Action type in the Design mode or Play mode
 	case SET_WORKSHOP:
@@ -152,5 +162,12 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		pAct->Execute(); // Execute
 		delete pAct;	 // Action is not needed any more after executing ==> delete it
 		pAct = NULL;
+	}
+	if (turn / 2 == 1.00 && ActType != NEW_GAME)
+	{
+		turn = 0;
+		Action* shootingAction = new shootingphase(this);
+		shootingAction->Execute();
+		delete shootingAction;
 	}
 }

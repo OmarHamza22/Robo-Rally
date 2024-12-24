@@ -77,5 +77,7 @@ public:
 		return hasHackDevice;
 	}
 
+	void reverse();
+	void getshot();
 };
 

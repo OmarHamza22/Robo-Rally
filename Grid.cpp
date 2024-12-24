@@ -576,3 +576,21 @@ Grid::~Grid()
 		delete PlayerList[i];
 	}
 }
+void Grid::setcommand(Command* x, int size) {
+	themovingcommands = x;
+	themovingcommandsnum = size;
+
+}
+Command* Grid::getcommands() {
+	return themovingcommands;
+
+}
+void Grid::setrandomcommands(Command* x, int size) {
+	themovingcommands = x;
+	themovingcommandsnum = size;
+
+
+}
+int Grid::getsize() {
+	return themovingcommandsnum;
+}

@@ -11,7 +11,6 @@
 #include <cstdlib>  
 #include <ctime>
 #include <cmath>
-#include "Output.h"
 class playmode : public Action {
 private:
 
@@ -22,25 +21,27 @@ private:
 	Cell* pCell2;
 	Output* pOut;
 	Input* pIn;
-	excute* done;
 	Antenna* distance;
 	Grid* pGrid;
 	CellPosition test;
-	Command *randomcommands;
+	Command* randomcommands;
 	int size;
-	Command x[9] = { NO_COMMAND, MOVE_FORWARD_ONE_STEP,
+	Command x[9] = { NO_COMMAND,
+	MOVE_FORWARD_ONE_STEP,
 	MOVE_BACKWARD_ONE_STEP,
 	MOVE_FORWARD_TWO_STEPS,
 	MOVE_BACKWARD_TWO_STEPS,
 	MOVE_FORWARD_THREE_STEPS,
 	MOVE_BACKWARD_THREE_STEPS,
 	ROTATE_CLOCKWISE,
-	ROTATE_COUNTERCLOCKWISE };
+	ROTATE_COUNTERCLOCKWISE, };
+
 public:
 	playmode(ApplicationManager* pApp, Output* x);
 
 	void ReadActionParameters();
 
 	void Execute();
-	void randomcommandss();
+
+
 };

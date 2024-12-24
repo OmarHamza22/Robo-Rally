@@ -16,6 +16,7 @@ class ApplicationManager
 	// Pointers to the Input and Output 
 	Input *pIn;
 	Output *pOut;
+	float turn;
 
 public:
 
