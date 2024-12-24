@@ -81,6 +81,7 @@ public:
 	void SaveAll(ofstream& OutFile, string file, Type type);
 	void LoadAll(ifstream& Infile, string file, Type type);
 	void removeGrid();
+	void removeClipBoard();
 	// ========= Other Getters =========
 	
 	Player * GetCurrentPlayer() const;	// Gets a Pointer to the Current Player	                                    
