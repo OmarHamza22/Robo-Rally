@@ -48,6 +48,18 @@ void Paste::Execute()
 		//Flag
 		if (dynamic_cast<Flag*>(pasteOBJ))
 		{
+			for (int i = NumVerticalCells - 1; i >= 0; i--)
+			{
+				for (int j = 0; j <= NumHorizontalCells - 1; j++)
+				{
+					CellPosition cell(i, j);
+					if (dynamic_cast<Flag*>(pGride->getGameobject(cell)) != nullptr)
+					{
+						pGride->PrintErrorMessage("Error:Flag already exists on the grid");
+						return;
+					}
+				}
+			}
 			Flag* newFlag = new Flag(pastecell);
 			bool added = pGride->AddObjectToCell(newFlag);
 			if (!added)
@@ -57,8 +69,10 @@ void Paste::Execute()
 			}
 			else
 			{
+				pGride->removeClipBoard();
 				pGride->GetOutput()->PrintMessage("Flag pasted successfully");
 			}
+			
 		}
 		//Water Pit
 		else if (dynamic_cast<WaterPit*>(pasteOBJ))
@@ -94,6 +108,19 @@ void Paste::Execute()
 		//Antenna
 		else if (dynamic_cast<Antenna*>(pasteOBJ))
 		{
+			for (int i = NumVerticalCells - 1; i >= 0; i--)
+			{
+				for (int j = 0; j <= NumHorizontalCells - 1; j++)
+				{
+					CellPosition cell(i, j);
+					if (dynamic_cast<Antenna*>(pGride->getGameobject(cell)) != nullptr)
+					{
+						pGride->PrintErrorMessage("Error:Antenna already exists on the grid");
+						return;
+					}
+				}
+			}
+
 			Antenna* newAntenna = new Antenna(pastecell);
 			bool added = pGride->AddObjectToCell(newAntenna);
 			if (!added)
@@ -103,6 +130,7 @@ void Paste::Execute()
 			}
 			else
 			{
+				pGride->removeClipBoard();
 				pGride->GetOutput()->PrintMessage("Antenna pasted successfully");
 			}
 		}

@@ -224,8 +224,6 @@ void Grid::SaveAll(ofstream& OutFile, string file, Type type)
 				Workshops_num++;
 			if (dynamic_cast<Belt*>(CellList[i][j]->GetGameObject()))
 				Belt_num++;
-
-
 		}
 	}
 
@@ -464,6 +462,11 @@ void Grid::removeGrid()
 			RemoveObjectFromCell(pos); // Remove object from the cell
 		}
 	}
+}
+
+void Grid::removeClipBoard()
+{
+	Clipboard = NULL;
 }
 
 
