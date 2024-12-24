@@ -128,15 +128,24 @@ bool Grid::Beltsconflicts(CellPosition& startCell, CellPosition& endCell) const
 				CellPosition beltStart = belt->GetPosition();
 				CellPosition beltEnd = belt->GetEndPosition();
 
-				// Check if one belt's end is another's start and belts overlabing
+				// Check if one belt's end is another's start 
 
-				if ((startCell.GetCellNum() == beltEnd.GetCellNum() || endCell.GetCellNum() == beltStart.GetCellNum()) ||
-					(startCell.GetCellNum() == beltStart.GetCellNum() || endCell.GetCellNum() == beltEnd.GetCellNum())) {
+				if ((startCell.GetCellNum() == beltEnd.GetCellNum() || endCell.GetCellNum() == beltStart.GetCellNum())) {
 
 					return true;
 				}
 			}
 		}
+	}
+	return false;
+}
+
+bool Grid::isflag(CellPosition pos)
+{
+	if (CellList[pos.VCell()][pos.HCell()]->HasFlag())
+	{
+
+		return true;
 	}
 	return false;
 }

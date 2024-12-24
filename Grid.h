@@ -51,7 +51,9 @@ public:
 	bool HasAntenna() const;  // Check if a Antenna already exists on the grid     //  Added  //
 
 	bool Beltsconflicts(CellPosition& startCell, CellPosition& endCell) const;   //  Added  //
-	// Check if one belt's end is another's start and belts overlabing
+	// Check if one belt's end is another's start 
+
+	bool isflag(CellPosition pos);
 
 
 	// ========= Setters and Getters Functions =========

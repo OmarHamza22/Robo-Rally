@@ -48,8 +48,15 @@ void AddBeltAction::Execute()
 
 	// Check for overlaps and conflicts
 
-	 if (pGrid->getGameobject(startPos) || pGrid->getGameobject(endPos)) {
+	if (pGrid->getGameobject(startPos)) {
+
 		pGrid->PrintErrorMessage("Error: Cells already has object! Operation cancelled.");
+		return;
+	}
+
+	if (pGrid->isflag(endPos)) {
+
+		pGrid->PrintErrorMessage("Error: End Cell has Flag! Operation cancelled.");
 		return;
 	}
 
