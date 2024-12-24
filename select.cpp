@@ -35,14 +35,17 @@ void  selectcommand::Execute() {
 	now = randomcommands;
 	savedcommands = new Command[5];
 	for (int i = 0; i < 5; i++) {
+		savedcommands[i] = NO_COMMAND;
+	}
+	for (int i = 0; i < 5; i++) {
 		pGrid->GetOutput()->PrintMessage("select command");
 		int z = pGrid->GetInput()->GetSelectedCommandIndex();
 		savedcommands[i] = now[z];
 		now[z] = NO_COMMAND;
-		//pGrid->GetOutput()->CreateCommandsBar(savedcommands, 5, randomcommands, size);
+		pGrid->GetOutput()->CreateCommandsBar(savedcommands, 5, randomcommands, size);
 
 	}
-	pGrid->GetOutput()->CreateCommandsBar(savedcommands, 5, randomcommands, size);
+	//pGrid->GetOutput()->CreateCommandsBar(savedcommands, 5, randomcommands, size);
 	pGrid->setcommand(savedcommands, size);
 
 
