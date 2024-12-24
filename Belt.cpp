@@ -32,10 +32,9 @@ void Belt::Apply(Grid* pGrid, Player* pPlayer)
 
 	// 2- Apply the belt's effect by moving the player to the endCellPos
 	//    Review the "pGrid" functions and decide which function can be used for that
-	pGrid->RemoveObjectFromCell(position);
 	pGrid->UpdatePlayerCell(pPlayer , endCellPos);
 	
-
+	pGrid->UpdateInterface();
 }
 CellPosition Belt::GetEndPosition() const
 {

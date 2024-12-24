@@ -140,6 +140,11 @@ bool Grid::Beltsconflicts(CellPosition& startCell, CellPosition& endCell) const
 	return false;
 }
 
+void Grid::setCurrentplayer(int num)
+{
+	currPlayerNumber = num;
+}
+
 bool Grid::isflag(CellPosition pos)
 {
 	if (CellList[pos.VCell()][pos.HCell()]->HasFlag())

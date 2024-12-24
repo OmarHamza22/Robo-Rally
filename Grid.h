@@ -55,6 +55,8 @@ public:
 	bool Beltsconflicts(CellPosition& startCell, CellPosition& endCell) const;   //  Added  //
 	// Check if one belt's end is another's start 
 
+	void setCurrentplayer(int num);
+
 	bool isflag(CellPosition pos);
 
 

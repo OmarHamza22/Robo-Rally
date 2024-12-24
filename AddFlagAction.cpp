@@ -76,9 +76,6 @@ void AddFlagAction::Execute()
 		   pGrid->PrintErrorMessage("Error: Cell already has an object ! Click to continue ...");
 		   return;
 	   }
-	  
-
-	   pGrid->UpdateInterface();
 }
 
 AddFlagAction::~AddFlagAction()

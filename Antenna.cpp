@@ -92,11 +92,15 @@ void Antenna::Apply(Grid* pGrid, Player* pPlayer)
             firstPlayer = 1; // Other player wins the tie
         }
     }
+    pGrid->setCurrentplayer(firstPlayer);
 
     // Step 5: Display the result
 
     pOut->PrintMessage("Player " + to_string(firstPlayer + 1) + " will play first.");
+     
+    pGrid->UpdateInterface();
 }
+
 
 void Antenna::Save(ofstream& OutFile, string file)
 {
