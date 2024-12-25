@@ -16,6 +16,7 @@ class Player
 	// Player's current health points
 	bool hasToolkit;
 	bool hasHackDevice;
+	bool hasReflectionGear;
 	// owned equipments
 	// carried consumables
 	// carried laser type (default, double laser)
@@ -35,7 +36,8 @@ public:
 	int GetHealth();
 	int getplayernum();
 
-	
+	void SetReflectionGear(bool hasRef);
+	bool GetReflectionGear();
 	
 	// A getter for the health points
 	

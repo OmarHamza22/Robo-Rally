@@ -8,7 +8,7 @@ void Save::ReadActionParameters()
 	Output* pOut = pGride->GetOutput();
 	Input* pIn = pGride->GetInput();
 	pOut->PrintMessage("Please Enter File Name: ");
-	filename = pIn->GetSrting(pOut) + ".txt";
+	filename = pIn->GetSrting(pOut) + ".txt"; //to get the file from the user and change it the file to txt
 	pOut->ClearStatusBar();
 }
 void Save::Execute()

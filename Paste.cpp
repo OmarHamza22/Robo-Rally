@@ -18,7 +18,7 @@ void Paste::ReadActionParameters()
 	pGride->GetOutput()->PrintMessage("Click on Cell to Paste");
 	pastecell = pInp->GetCellClicked();
 
-	if (!pastecell.IsValidCell())
+	if (!pastecell.IsValidCell()) //checks if the cell is valid 
 	{
 		pGride->PrintErrorMessage("The Cell is Invalid");
 		return;
@@ -30,7 +30,7 @@ void Paste::Execute()
 	Grid* pGride = pManager->GetGrid();
 	ReadActionParameters();
 
-	if (!pastecell.IsValidCell())
+	if (!pastecell.IsValidCell()) 
 	{
 		pGride->PrintErrorMessage("The Cell is Invalid");
 		return;
@@ -45,6 +45,7 @@ void Paste::Execute()
 	else 
 	{
 		GameObject* pasteOBJ = pGride->GetClipboard();
+
 		//Flag
 		if (dynamic_cast<Flag*>(pasteOBJ))
 		{
@@ -74,6 +75,7 @@ void Paste::Execute()
 			}
 			
 		}
+
 		//Water Pit
 		else if (dynamic_cast<WaterPit*>(pasteOBJ))
 		{
@@ -89,6 +91,7 @@ void Paste::Execute()
 				pGride->GetOutput()->PrintMessage("Water Pit pasted successfully");
 			}
 		}
+
 		//Workshop
 		else if (dynamic_cast<Workshop*>(pasteOBJ))
 		{
@@ -134,6 +137,7 @@ void Paste::Execute()
 				pGride->GetOutput()->PrintMessage("Antenna pasted successfully");
 			}
 		}
+
 		//DangerZone
 		else if (dynamic_cast<DangerZone*>(pasteOBJ))
 		{
@@ -149,6 +153,7 @@ void Paste::Execute()
 				pGride->GetOutput()->PrintMessage("Danger Zone pasted successfully");
 			}
 		}
+
 		//RotatingGear Clock wise
 		else if (dynamic_cast<RotatingGear*>(pasteOBJ))
 		{
@@ -172,6 +177,7 @@ void Paste::Execute()
 				}
 			}
 		}
+
 		//#####BELT
 		else if (dynamic_cast<Belt*>(pasteOBJ))
 		{

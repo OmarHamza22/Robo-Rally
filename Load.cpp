@@ -16,9 +16,9 @@ void Load::Execute()
 {
 	Grid* pGride = pManager->GetGrid();
 	Output* pOut = pGride->GetOutput();
-	pGride->removeGrid();
+	pGride->removeGrid(); //to remove any changes done before loading the grid
 	ReadActionParameters();
-	ifstream infile(filname, ios::in);
+	ifstream infile(filname, ios::in);  //Opens the file to read
 	if (!infile.is_open())    //to check if the file is opened or not
 	{
 		pGride->PrintErrorMessage("Error: Could not open file ");

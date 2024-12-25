@@ -210,27 +210,34 @@ GameObject* Grid::getGameobject(const CellPosition& CELL) const
 void Grid::SaveAll(ofstream& OutFile, string file, Type type)
 {
 	int Flags_num = 0, Antennas_num = 0, DangerZones_num = 0, RotatingGears_num = 0, WaterPits_num = 0, Workshops_num = 0, Belt_num = 0;
-
+	//Counters For GameObjects
 	for (int i = NumVerticalCells - 1; i >= 0; i--)
 	{
 		for (int j = 0; j <= NumHorizontalCells - 1; j++)
 		{
-			if (dynamic_cast<Flag*>(CellList[i][j]->GetGameObject()))
+			if (dynamic_cast<Flag*>(CellList[i][j]->GetGameObject())) //Chaceking if the GameObject at this postion is Flag 
 				Flags_num++;
-			if (dynamic_cast<Antenna*>(CellList[i][j]->GetGameObject()))
+			if (dynamic_cast<Antenna*>(CellList[i][j]->GetGameObject())) //Chaceking if the GameObject at this postion is Antenna 
 				Antennas_num++;
-			if (dynamic_cast<DangerZone*>(CellList[i][j]->GetGameObject()))
+			if (dynamic_cast<DangerZone*>(CellList[i][j]->GetGameObject()))//Chaceking if the GameObject at this postion is DangerZone 
 				DangerZones_num++;
-			if (dynamic_cast<RotatingGear*>(CellList[i][j]->GetGameObject()))
+			if (dynamic_cast<RotatingGear*>(CellList[i][j]->GetGameObject())) //Chaceking if the GameObject at this postion is RotatingGear 
 				RotatingGears_num++;
-			if (dynamic_cast<WaterPit*>(CellList[i][j]->GetGameObject()))
+			if (dynamic_cast<WaterPit*>(CellList[i][j]->GetGameObject())) //Chaceking if the GameObject at this postion is WaterPit 
 				WaterPits_num++;
-			if (dynamic_cast<Workshop*>(CellList[i][j]->GetGameObject()))
+			if (dynamic_cast<Workshop*>(CellList[i][j]->GetGameObject())) //Chaceking if the GameObject at this postion is Workshop 
 				Workshops_num++;
-			if (dynamic_cast<Belt*>(CellList[i][j]->GetGameObject()))
+			if (dynamic_cast<Belt*>(CellList[i][j]->GetGameObject())) //Chaceking if the GameObject at this postion is Belt 
 				Belt_num++;
 		}
 	}
+
+	//1st step print out the Number of flags
+	//2nd step for loops for the whole grid
+	//3th step casting the object at the cell if success it will save it
+	//4th save the object
+	//5th step add the object to the grid
+	//6th Repeat for all objects Types
 
 	switch (type)
 	{
@@ -336,10 +343,19 @@ void Grid::SaveAll(ofstream& OutFile, string file, Type type)
 
 void Grid::LoadAll(ifstream& Infile, string file, Type type)
 {
-	int objectCount;
-	string OBJtype;
-	getline(Infile, OBJtype);
-	objectCount = stoi(OBJtype.substr(OBJtype.find(":") + 1));
+	int objectCount; //Counter for GAmeObhects
+	string line;
+	getline(Infile, line); //Read line until /n
+	objectCount = stoi(line.substr(line.find(":") + 1)); //stores the number of objects
+
+	//1st step for loop for the object count
+	//2nd step make a cellpotion object with default constructor
+	//3th step make a new object 
+	//4th step load the data 
+	//5th step add the object to the grid
+	//6th step if the object count not equale zero skip the /n and get to the next line
+	//Repeat According to the type of the object and its valditations
+
 	switch (type)
 	{
 
@@ -347,14 +363,14 @@ void Grid::LoadAll(ifstream& Infile, string file, Type type)
 	
 		for (int i = 0; i < objectCount; i++)
 		{
-			CellPosition pos;
-			Flag* newFlag = new Flag(pos); 
-			newFlag->Load(Infile, file);     
-			AddObjectToCell(newFlag);    
+			CellPosition pos; //cellpostion object with defualt constructor
+			Flag* newFlag = new Flag(pos);  //new flag 
+			newFlag->Load(Infile, file);     //loading the data 
+			AddObjectToCell(newFlag);    //add the object to the grid
 		} 
 		if (objectCount != 0)
 		{
-			getline(Infile, OBJtype);
+			getline(Infile, line); //skips /n to get to the next line
 		}
 
 		break;
@@ -371,7 +387,7 @@ void Grid::LoadAll(ifstream& Infile, string file, Type type)
 		}
 		if (objectCount != 0)
 		{
-			getline(Infile, OBJtype);
+			getline(Infile, line);
 		}
 		break;
 
@@ -387,7 +403,7 @@ void Grid::LoadAll(ifstream& Infile, string file, Type type)
 		}
 		if (objectCount != 0)
 		{
-			getline(Infile, OBJtype);
+			getline(Infile, line);
 		}
 		break;
 
@@ -402,7 +418,7 @@ void Grid::LoadAll(ifstream& Infile, string file, Type type)
 		}
 		if (objectCount != 0)
 		{
-			getline(Infile, OBJtype);
+			getline(Infile, line);
 		}
 		break;
 
@@ -418,7 +434,7 @@ void Grid::LoadAll(ifstream& Infile, string file, Type type)
 		}
 		if (objectCount != 0)
 		{
-			getline(Infile, OBJtype);
+			getline(Infile, line);
 		}
 		break;
 
@@ -434,7 +450,7 @@ void Grid::LoadAll(ifstream& Infile, string file, Type type)
 		}
 		if (objectCount != 0)
 		{
-			getline(Infile, OBJtype);
+			getline(Infile, line);
 		}
 		break;
 
@@ -450,7 +466,7 @@ void Grid::LoadAll(ifstream& Infile, string file, Type type)
 		}
 		if (objectCount != 0)
 		{
-			getline(Infile, OBJtype);
+			getline(Infile, line);
 		}
 		break;
 

@@ -146,6 +146,14 @@ void Player::AppendPlayerInfo(string& playersInfo) const
 int Player::getplayernum() {
 	return playerNum;
 }
+void Player::SetReflectionGear(bool hasRef)
+{
+	hasReflectionGear = hasRef;
+}
+bool Player::GetReflectionGear()
+{
+	return hasReflectionGear;
+}
 void Player::reverse() {
 
 	switch (currDirection) {

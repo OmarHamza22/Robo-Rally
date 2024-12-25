@@ -17,6 +17,22 @@ void shootingphase::Execute() {
 	Cell* p1cell = player1->GetCell();
 	CellPosition p0 = p0cell->GetCellPosition();
 	CellPosition p1 = p1cell->GetCellPosition();
+
+	if (player0->GetReflectionGear())
+	{
+		player1->getshot();
+		pGrid->GetOutput()->PrintMessage("Player 1 Got Shot ");
+		player0->SetReflectionGear(false);
+		return;
+	}
+	if (player1->GetReflectionGear())
+	{
+		player0->getshot();
+		pGrid->GetOutput()->PrintMessage("Player 0 Got Shot ");
+		player1->SetReflectionGear(false);
+		return;
+	}
+
 	if (p0.VCell() == p1.VCell()) {
 		if (player0->GetCurrentDirection() == RIGHT && player1->GetCurrentDirection() == RIGHT) {
 			if (p0.HCell() < p1.HCell()) {
@@ -273,8 +289,7 @@ void shootingphase::Execute() {
 
 			}
 
-
-
+			
 
 
 
