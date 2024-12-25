@@ -11,7 +11,7 @@ void Delete::ReadActionParameters()
 	pGride->GetOutput()->PrintMessage("Click on Cell to Delete");
 	deletedcell = pInput->GetCellClicked();
 
-	if (!deletedcell.IsValidCell())
+	if (!deletedcell.IsValidCell()) //checks if the cell is valid
 	{
 		pGride->PrintErrorMessage("The Cell is invalid");
 		return;
@@ -24,13 +24,13 @@ void Delete::Execute()
 	Grid* pGride = pManager->GetGrid();
 	ReadActionParameters();
 
-	if (!deletedcell.IsValidCell())
+	if (!deletedcell.IsValidCell()) //checks if the cell is valid
 	{
 		pGride->PrintErrorMessage("The Cell is invalid");
 		return;
 	}
 	
-	if (pGride->RemoveObjectFromCell(deletedcell))
+	if (pGride->RemoveObjectFromCell(deletedcell)) //removes the object
 	{
 		pGride->GetOutput()->PrintMessage("The Object deleted successfully");
 	}

@@ -36,17 +36,17 @@ void Paste::Execute()
 		return;
 	}
 
-	if (pGride->GetClipboard() == nullptr)
+	if (pGride->GetClipboard() == nullptr) // Checks if clipboard is empty
 	{
 		pGride->PrintErrorMessage("Error: No object copied");
 		return;
 	}
-
+	
 	else 
 	{
 		GameObject* pasteOBJ = pGride->GetClipboard();
 
-		//Flag
+		// Flag - Checks if the clipboard object is a Flag and pastes it.
 		if (dynamic_cast<Flag*>(pasteOBJ))
 		{
 			for (int i = NumVerticalCells - 1; i >= 0; i--)
@@ -76,7 +76,7 @@ void Paste::Execute()
 			
 		}
 
-		//Water Pit
+		// Water Pit - Checks if the clipboard object is a WaterPit and pastes it.
 		else if (dynamic_cast<WaterPit*>(pasteOBJ))
 		{
 			WaterPit* newWaterPit = new WaterPit(pastecell);
@@ -92,7 +92,7 @@ void Paste::Execute()
 			}
 		}
 
-		//Workshop
+		// Workshop - Checks if the clipboard object is a Workshop and pastes it.
 		else if (dynamic_cast<Workshop*>(pasteOBJ))
 		{
 			Workshop* newWorkshop = new Workshop(pastecell);
@@ -108,7 +108,7 @@ void Paste::Execute()
 			}
 		}
 
-		//Antenna
+		// Antenna - Checks if the clipboard object is an Antenna and pastes it.
 		else if (dynamic_cast<Antenna*>(pasteOBJ))
 		{
 			for (int i = NumVerticalCells - 1; i >= 0; i--)
@@ -138,7 +138,7 @@ void Paste::Execute()
 			}
 		}
 
-		//DangerZone
+		// DangerZone - Checks if the clipboard object is a DangerZone and pastes it.
 		else if (dynamic_cast<DangerZone*>(pasteOBJ))
 		{
 			DangerZone* newDangerZone = new DangerZone(pastecell);
@@ -154,7 +154,7 @@ void Paste::Execute()
 			}
 		}
 
-		//RotatingGear Clock wise
+		// Rotating Gear - Checks if the clipboard object is a Rotating Gear and pastes it.
 		else if (dynamic_cast<RotatingGear*>(pasteOBJ))
 		{
 			RotatingGear* copiedGear = dynamic_cast<RotatingGear*>(pasteOBJ);
@@ -178,7 +178,7 @@ void Paste::Execute()
 			}
 		}
 
-		//#####BELT
+		// Belt - Checks if the clipboard object is a Belt and pastes it, ensuring enough space for the belt.
 		else if (dynamic_cast<Belt*>(pasteOBJ))
 		{
 			Belt* beltobj = dynamic_cast<Belt*>(pasteOBJ);
